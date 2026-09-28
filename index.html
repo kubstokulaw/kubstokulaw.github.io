@@ -1161,7 +1161,7 @@ function openCourse(o={}){
   const c = o.id ? S.courses.find(x=>x.id===o.id) : null;
   const d = o.code ? DBI[up(o.code)] : null;
   const curSem = sortedSems().find(s=>S.courses.some(x=>x.sem===s && isIng(x))) || sortedSems()[0];
-  EDIT = c ? Object.assign({}, c) : { id:null, name:d?d.name:'', code:d&&!isFakeCode(d.code)?d.code:'', cat:d?d.cat:'교양선택', cr:d?d.cr:3, gr:o.plan?'계획':'수강중', sem:o.sem||(o.plan?nextSem():curSem), eng:false, side:'auto' };
+  EDIT = c ? Object.assign({}, c) : { id:null, name:d?d.name:'', code:d&&!isFakeCode(d.code)?d.code:'', cat:d?d.cat:'교양선택', cr:d?d.cr:3, gr:o.plan?'계획':'A+', sem:o.sem||(o.plan?nextSem():curSem), eng:false, side:'auto' };
   openSheet(`<h3>${c?'과목 수정':'과목 추가'}</h3>
     ${c?'':`<div class="search">🔍<input id="cq" placeholder="과목명 또는 학수번호 (예: 마케팅원론, ECON201)" autocomplete="off" oninput="searchCourse()"></div><div class="res" id="cres"></div>`}
     <div class="frow"><label>과목명<input id="cName" value="${esc(EDIT.name)}"></label><label class="w120">학수번호<input id="cCode" value="${esc(EDIT.code)}" oninput="EDIT.code=this.value;updOverlap();updNotes()"></label></div>
