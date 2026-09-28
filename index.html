@@ -370,6 +370,51 @@ label.chk input{width:20px;height:20px;accent-color:var(--brand)}
 .lrec .x{border:none;background:none;color:#d1d6db;font-size:14px;padding:6px;cursor:pointer}
 .lrec .x:hover{color:#e5484d}
 @media print{.nav,.fab,.seg,#gate{display:none}}
+.detail .dlab{font-size:12px;font-weight:700;color:var(--mut);margin:0 0 6px}
+.detail .tags span{cursor:pointer;-webkit-tap-highlight-color:rgba(0,0,0,.05)}
+.detail .tags span:active{transform:scale(.97)}
+.detail .tags span:not(.y):not(.i){background:#fff;border:1px dashed #d1d6db}
+.hint2{font-size:12px;color:var(--faint);margin-top:6px}
+.row{cursor:pointer}
+.row.open .chev{transform:rotate(180deg)}
+.detail + .row{border-top:1px solid var(--line)}
+/* ── 수강계획 · 재수강 ── */
+.big-pb i.pl, .pb i.pl{background:repeating-linear-gradient(135deg,#9ec5fb 0 4px,#d6e7fe 4px 8px)}
+.pb{display:flex}
+.legend span.pl::before{background:#9ec5fb}
+.shortlist{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.shortlist span{font-size:12.5px;background:#fff4e0;color:#8a5600;padding:5px 9px;border-radius:8px}
+.shortlist b{font-variant-numeric:tabular-nums}
+.plansw{display:flex;align-items:center;gap:12px;margin-top:14px;padding:12px 14px;background:#fff;border-radius:14px;cursor:pointer}
+@media (min-width:1024px){ .plansw{background:#f9fafb} }
+.plansw>span:first-child{flex:1}
+.plansw b{display:block;font-size:14.5px}
+.plansw small{display:block;font-size:12px;color:var(--mut);margin-top:1px}
+.detail .tags span.p{background:#e8f3ff;color:#1b64da;font-weight:600}
+#boxR .grp{margin-bottom:12px}
+#boxR .tags span{font-size:13px;padding:6px 10px;border-radius:9px;background:#fff;border:1px dashed #d1d6db;color:var(--sub);cursor:pointer}
+@media (min-width:1024px){ #boxR{grid-column:1/-1} }
+@media (max-width:1023px){ #boxR{order:3} }
+.co.replaced .n, .co.replaced .gr{opacity:.45}
+.co.replaced .n{text-decoration:line-through;text-decoration-color:#b0b8c1}
+.co .rt{font-style:normal;font-size:10.5px;font-weight:700;padding:2px 6px;border-radius:5px;background:#fff4e0;color:#b36b00;margin-left:4px;vertical-align:1px;text-decoration:none;display:inline-block}
+.co .rt.old{background:#f2f4f6;color:var(--mut)}
+.co .gr.plan{color:#1b64da;font-size:13px}
+.co .gr s{color:var(--faint);font-weight:500;margin-right:2px}
+.sem .h .planb{font-size:12px;font-weight:700;color:#1b64da;background:#e8f3ff;padding:3px 8px;border-radius:7px}
+.convbtn{width:100%;margin:4px 0 2px;border:1px dashed #9ec5fb;background:#f5f9ff;color:#1b64da;font:inherit;font-weight:600;font-size:13.5px;padding:10px;border-radius:12px;cursor:pointer}
+.note{font-size:13px;line-height:1.5;border-radius:12px;padding:10px 12px;margin:6px 0 4px}
+.note.rt{background:#fff4e0;color:#8a5600}
+.note.warn{background:#fdecec;color:#c0392b}
+.legend{flex-wrap:wrap;row-gap:4px}
+.legend span{white-space:nowrap}
+.nav-in .brand{white-space:nowrap;letter-spacing:-.4px}
+@media (max-width:400px){ .nav-in .brand{font-size:15.5px} .nav-in{gap:7px} .mode-sw button{padding:6px 9px} }
+@media (max-width:350px){ .nav-in .brand{font-size:14px} }
+@media (max-width:350px){ .nav-in img{display:none} .mode-sw button{padding:5px 7px;font-size:12.5px} .nav-in .ic{width:34px} }
+.mode-sw{flex-shrink:0} .mode-sw button{white-space:nowrap}
+.nav-in .brand{overflow:hidden;text-overflow:ellipsis;min-width:0}
+@media (max-width:400px){ body.leet-on .nav-in img{display:none} }
 
 </style>
 </head>
@@ -377,7 +422,7 @@ label.chk input{width:20px;height:20px;accent-color:var(--brand)}
 <div id="gate"><div class="g-in" id="gin"></div></div>
 
 <div class="nav"><div class="nav-in">
-  <img src="data:image/webp;base64,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" alt=""><b>고경고로</b>
+  <img src="data:image/webp;base64,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" alt=""><b class="brand">고경에서 고로까지</b>
   <span class="mode-sw" id="modeSw"><button class="on" onclick="setMode('grad')">졸업</button><button onclick="setMode('leet')">LEET</button></span>
   <button class="sync off" id="sync" onclick="openSyncInfo()" title="동기화 상태"><i></i><span>준비 중</span></button>
   <span class="sp"></span>
@@ -392,6 +437,7 @@ label.chk input{width:20px;height:20px;accent-color:var(--brand)}
     <div class="box trend" id="boxT2"></div>
   </div>
   <div class="colR">
+    <div class="box" id="boxR" style="display:none"></div>
     <div class="seg" id="seg"></div>
     <div class="box" id="box1"></div>
     <div class="box" id="box2"></div>
@@ -549,6 +595,7 @@ const ECON_CATALOG = [
 
 const LEET_DATA = {"scales":{"old":{"eoneo":{"m":50,"s":10,"q":35},"churi":{"m":50,"s":10,"q":35}},"old2019":{"eoneo":{"m":50,"s":10,"q":30},"churi":{"m":50,"s":10,"q":40}},"new":{"eoneo":{"m":45,"s":9,"q":30},"churi":{"m":60,"s":12,"q":40}}},"years":{"2026":{"scale":"new","src":"환산표","eoneo":{"m":17.19,"sd":4.104,"t":{"30":[73.1,100.0],"29":[70.9,100.0],"28":[68.7,100.0],"27":[66.5,99.8],"26":[64.3,99.2],"25":[62.1,98.2],"24":[59.9,96.2],"23":[57.7,92.9],"22":[55.5,88.0],"21":[53.3,81.5],"20":[51.2,73.5],"19":[49.0,64.6],"18":[46.8,55.4],"17":[44.6,46.1],"16":[42.4,37.2],"15":[40.2,28.3],"14":[38.0,19.4],"13":[35.8,10.5],"12":[33.6,1.6],"11":[31.4,0.0],"10":[29.2,0.0]}},"churi":{"m":22.83,"sd":5.217,"t":{"40":[99.5,100.0],"39":[97.2,100.0],"38":[94.9,100.0],"37":[92.6,100.0],"36":[90.3,99.9],"35":[88.0,99.7],"34":[85.7,99.3],"33":[83.4,98.6],"32":[81.1,97.3],"31":[78.8,95.3],"30":[76.5,92.5],"29":[74.2,88.7],"28":[71.9,83.6],"27":[69.6,77.5],"26":[67.3,70.9],"25":[65.0,63.8],"24":[62.7,56.7],"23":[60.4,49.6],"22":[58.1,42.5],"21":[55.8,35.4],"20":[53.5,28.3]}}},"2025":{"scale":"new","src":"환산표","eoneo":{"m":17.03,"sd":4.099,"t":{"30":[73.5,100.0],"29":[71.3,100.0],"28":[69.1,99.9],"27":[66.9,99.7],"26":[64.7,99.1],"25":[62.5,98.0],"24":[60.3,96.2],"23":[58.1,93.3],"22":[55.9,89.0],"21":[53.7,83.1],"20":[51.5,75.5],"19":[49.3,66.4],"18":[47.1,57.3],"17":[44.9,46.4],"16":[42.7,35.5],"15":[40.5,24.5],"14":[38.3,13.6],"13":[36.2,3.2],"12":[34.0,0.0],"11":[31.8,0.0],"10":[29.6,0.0]}},"churi":{"m":25.08,"sd":5.68,"t":{"40":[91.5,100.0],"39":[89.4,100.0],"38":[87.3,99.8],"37":[85.2,99.4],"36":[83.1,98.7],"35":[81.0,97.5],"34":[78.9,95.8],"33":[76.7,93.2],"32":[74.6,89.6],"31":[72.5,85.4],"30":[70.4,80.4],"29":[68.3,74.4],"28":[66.2,67.7],"27":[64.1,60.5],"26":[61.9,53.2],"25":[59.8,45.8],"24":[57.7,39.4],"23":[55.6,32.8],"22":[53.5,26.4],"21":[51.4,20.5],"20":[49.3,15.2]}}},"2024":{"scale":"new","src":"환산표","eoneo":{"m":15.25,"sd":3.702,"t":{"30":[80.9,100.0],"29":[78.4,100.0],"28":[76.0,100.0],"27":[73.6,100.0],"26":[71.1,99.9],"25":[68.7,99.6],"24":[66.3,99.4],"23":[63.8,98.6],"22":[61.4,97.1],"21":[59.0,94.8],"20":[56.5,90.3],"19":[54.1,84.3],"18":[51.7,77.2],"17":[49.3,69.1],"16":[46.8,60.2],"15":[44.4,50.8],"14":[42.0,41.4],"13":[39.5,32.3],"12":[37.1,23.8],"11":[34.7,16.2],"10":[32.2,9.8]}},"churi":{"m":22.2,"sd":5.7,"t":{"40":[97.5,100.0],"39":[95.4,100.0],"38":[93.3,100.0],"37":[91.2,99.9],"36":[89.1,99.8],"35":[86.9,99.4],"34":[84.8,99.1],"33":[82.7,98.3],"32":[80.6,96.9],"31":[78.5,94.2],"30":[76.4,91.4],"29":[74.3,88.7],"28":[72.2,83.6],"27":[70.1,78.4],"26":[68.0,73.3],"25":[65.9,66.6],"24":[63.8,60.0],"23":[61.7,53.4],"22":[59.6,46.8],"21":[57.5,40.2],"20":[55.4,33.6]}}},"2023":{"scale":"new","src":"환산표","eoneo":{"m":16.94,"sd":4.271,"t":{"30":[72.5,99.9],"29":[70.4,99.8],"28":[68.3,99.0],"27":[66.2,98.0],"26":[64.1,97.3],"25":[62.0,95.3],"24":[59.9,92.3],"23":[57.8,87.9],"22":[55.7,82.3],"21":[53.6,75.7],"20":[51.5,67.8],"19":[49.3,58.8],"18":[47.2,49.8],"17":[45.1,40.7],"16":[43.0,32.1],"15":[40.9,24.5],"14":[38.8,17.5],"13":[36.7,13.2],"12":[34.6,12.4],"11":[32.5,8.2],"10":[30.4,5.2]}},"churi":{"m":23.14,"sd":5.816,"t":{"40":[94.8,99.8],"39":[92.7,99.7],"38":[90.7,99.5],"37":[88.6,99.3],"36":[86.5,98.0],"35":[84.5,97.7],"34":[82.4,96.0],"33":[80.4,94.3],"32":[78.3,91.6],"31":[76.2,88.1],"30":[74.1,83.9],"29":[72.1,78.8],"28":[70.0,73.1],"27":[68.0,66.9],"26":[65.9,60.5],"25":[63.8,53.9],"24":[61.8,47.3],"23":[59.7,40.9],"22":[57.7,34.8],"21":[55.6,29.3],"20":[53.5,23.9]}}},"2022":{"scale":"new","eoneo":{"m":16.6,"sd":4.43},"churi":{"m":22.7,"sd":5.66},"src":"추정"},"2021":{"scale":"new","eoneo":{"m":15.2,"sd":4.0},"churi":{"m":21.9,"sd":5.97},"src":"추정"},"2020":{"scale":"new","eoneo":{"m":16.8,"sd":4.33},"churi":{"m":24.0,"sd":5.94},"src":"추정"},"2019":{"scale":"old2019","eoneo":{"m":17.1,"sd":4.16},"churi":{"m":25.3,"sd":6.2},"src":"추정"},"2018":{"scale":"old","eoneo":{"m":21.1,"sd":4.94},"churi":{"m":20.6,"sd":5.26},"src":"추정"},"2017":{"scale":"old","eoneo":{"m":21.8,"sd":5.31},"churi":{"m":21.4,"sd":5.2},"src":"추정"},"2016":{"scale":"old","eoneo":{"m":23.21,"sd":5.12},"churi":{"m":19.07,"sd":4.58},"src":"추정"},"2015":{"scale":"old","eoneo":{"m":24.0,"sd":5.28},"churi":{"m":21.4,"sd":4.67},"src":"추정"},"2014":{"scale":"old","eoneo":{"m":25.1,"sd":5.27},"churi":{"m":22.4,"sd":4.86},"src":"추정"},"2013":{"scale":"old","eoneo":{"m":18.48,"sd":4.32},"churi":{"m":18.86,"sd":4.22},"src":"추정"},"2012":{"scale":"old","eoneo":{"m":20.33,"sd":4.24},"churi":{"m":19.86,"sd":4.06},"src":"추정"},"2027":{"scale":"new","src":"환산표","eoneo":{"m":17.88,"sd":4.119,"t":{"30":[71.5,100.0],"29":[69.3,99.9],"28":[67.1,99.8],"27":[64.9,99.4],"26":[62.7,98.5],"25":[60.6,96.8],"24":[58.4,94.0],"23":[56.2,89.8],"22":[54.0,84.0],"21":[51.8,77.0],"20":[49.7,68.3],"19":[47.5,58.7],"18":[45.3,49.1],"17":[43.1,39.8],"16":[40.9,30.9],"15":[38.7,22.0],"14":[36.5,13.1],"13":[34.3,4.2],"12":[32.1,0.5],"11":[30.0,0.0],"10":[27.8,0.0]}},"churi":{"m":23.77,"sd":5.777,"t":{"40":[93.8,100.0],"39":[91.7,100.0],"38":[89.5,99.9],"37":[87.5,99.7],"36":[85.4,99.4],"35":[83.3,98.6],"34":[81.2,97.4],"33":[79.2,95.7],"32":[77.1,93.2],"31":[75.0,90.0],"30":[72.9,86.0],"29":[70.9,81.1],"28":[68.8,75.6],"27":[66.7,69.3],"26":[64.6,62.6],"25":[62.6,55.7],"24":[60.5,49.0],"23":[58.4,42.4],"22":[56.3,35.7],"21":[54.3,29.0],"20":[52.2,22.3]}}}}};
 
+
 /* ═══════════════════════════════════════════════════════════════
    고경에서 고로까지 v3 — 핵심 로직
    · 제1전공 경영 고정 + 2전공 프로필(심화/이중/융합/미정)
@@ -562,12 +609,14 @@ const g2 = v => v==null ? '–' : v.toFixed(2);
 const up = s => String(s||'').trim().toUpperCase().replace(/\s+/g,'');
 
 /* ── 성적 ── */
-const GRADES = {"A+":4.5,"A0":4.0,"B+":3.5,"B0":3.0,"C+":2.5,"C0":2.0,"D+":1.5,"D0":1.0,"F":0,"P":null,"수강중":null};
+const GRADES = {"A+":4.5,"A0":4.0,"B+":3.5,"B0":3.0,"C+":2.5,"C0":2.0,"D+":1.5,"D0":1.0,"F":0,"P":null,"NP":null,"수강중":null,"계획":null};
 const GRADE_ALIAS = {"A":4.0,"B":3.0,"C":2.0,"D":1.0,"A-":4.0,"B-":3.0,"C-":2.0,"D-":1.0,"NP":null,"NR":null,"S":null,"U":null,"PASS":null};
 function gp(gr){ const raw=String(gr==null?'':gr).trim(); if(raw in GRADES) return GRADES[raw];
   const k=raw.toUpperCase(); if(k in GRADE_ALIAS) return GRADE_ALIAS[k]; return null; }
 const crOf = c => { const v=parseFloat(c.cr); return isFinite(v)&&v>0 ? v : 0; };
 const isIng = c => c.gr==='수강중';
+const isPlan = c => c.gr==='계획';
+let PLAN_VIEW = false;   // '계획 포함해서 보기' 스위치
 const isFail = c => c.gr==='F' || up(c.gr)==='NP';
 
 /* ── 학기 ── */
@@ -617,36 +666,65 @@ Object.values(CONV_POOL).forEach(arr=>arr.forEach(([code,name])=>dbAdd({code,nam
 const bizCatOf = code => { const d=DBI[up(code)]; if(!d) return /^BUSS/.test(up(code)) ? '전공선택' : null; return d.cat; };
 const nameOf = code => (DBI[up(code)]||{}).name || code;
 
+/* ── 과목명 비교용 정규화: 공백·[진로·창업]·(영강)·로마숫자 표기 차이 무시 ── */
+const ROMAN = {'Ⅰ':'I','Ⅱ':'II','Ⅲ':'III','Ⅳ':'IV','Ⅴ':'V'};
+function normName(n){ return String(n||'').replace(/\[[^\]]*\]/g,'').replace(/\((영강|영어강의)\)/g,'').replace(/[ⅠⅡⅢⅣⅤ]/g,m=>ROMAN[m]).replace(/[\s·,\-_:]/g,'').toUpperCase(); }
+const GYO_SET = new Set(GYO.map(x=>up(x[0])));
+
 /* ── 2전공 소속 판정 ── */
-function inReq(r, code){ const k=up(code);
+function inReq(r, code){ const k=up(code); if(!k) return false;
   if(r.list && r.list.some(x=>up(x[0])===k)) return true;
-  if(r.prefix && r.prefix.some(p=>k.startsWith(p))) return true; return false; }
-function reqListCodes(r){ return r.list ? r.list.map(x=>up(x[0])) : []; }
-function s2Member(def, code){
-  if(!def) return false;
-  for(const r of def.reqs){
-    if(r.exclude){ const ex = def.reqs.find(x=>x.k===r.exclude); if(ex && inReq(ex,code)) continue; }
-    if(inReq(r,code)) return true; }
+  if(r.prefix && r.prefix.some(p=>k.startsWith(p)) && !GYO_SET.has(k)) return true;   // 교양 과목(예: ECON110 경제학개론)은 전공 아님
   return false; }
+function inReqEx(def, r, code){ if(r.exclude){ const ex=def.reqs.find(x=>x.k===r.exclude); if(ex && inReq(ex,code)) return false; } return inReq(r,code); }
+function s2Member(def, code){ return !!def && def.reqs.some(r=>inReqEx(def,r,code)); }
 function s2Required(def, code){ return !!def && def.reqs.some(r=>(r.req || /전공필수/.test(r.k)) && inReq(r,code)); }
 
 /* ── 이수 과목 정리: 재수강은 마지막 성적만, 학수번호 중복 제거 ── */
 function latestByCode(list){
   const best = {};
-  list.forEach(c=>{ const k = up(c.code) || ('#'+(c.name||'').trim());
+  list.forEach(c=>{ const k = up(c.code) || ('#'+normName(c.name));
     const prev = best[k]; if(!prev || semIdx(c.sem) >= semIdx(prev.sem)) best[k] = c; });
   return Object.values(best); }
-const takenAll = () => latestByCode(S.courses.filter(c=>!isIng(c))).filter(c=>!isFail(c));   // 취득 학점 인정 과목
+const takenAll = () => latestByCode(S.courses.filter(c=>!isIng(c) && !isPlan(c))).filter(c=>!isFail(c));   // 학점 인정 과목
+const planCourses = () => S.courses.filter(isPlan);
+/* 계획 포함 보기: 수강중·계획 과목도 들었다고 치고 계산 (같은 과목이면 가장 늦은 학기 것) */
+const countedAll = () => PLAN_VIEW ? latestByCode(S.courses).filter(c=>!isFail(c)) : takenAll();
 const ingCourses = () => S.courses.filter(isIng);
-const hasCode = code => takenAll().some(c=>up(c.code)===up(code));
-const ingCode = code => !hasCode(code) && ingCourses().some(c=>up(c.code)===up(code));
+/* 요건 과목 이수 여부: 학수번호가 같거나, 과목명이 같으면 인정 (교양필수는 실제 학수번호가 학기마다 달라서) */
+function findCourse(code, name, list){ const k=up(code), n=normName(name);
+  return list.find(c=>(k && up(c.code)===k) || (n && normName(c.name)===n)); }
+function reqStatus(code, name){
+  const t = findCourse(code, name, takenAll()); if(t) return {st:'y', id:t.id};
+  const i = findCourse(code, name, ingCourses()); if(i) return {st:'i', id:i.id};
+  const p = findCourse(code, name, planCourses()); if(p) return {st:'p', id:p.id};
+  return {st:'', id:null}; }
+const hasCode = (code, name) => reqStatus(code, name).st==='y';
+const ingCode = (code, name) => reqStatus(code, name).st==='i';
 const totalCredits = () => takenAll().reduce((s,c)=>s+crOf(c),0);
-const ingCredits = () => latestByCode(ingCourses()).filter(c=>!hasCode(c.code)).reduce((s,c)=>s+crOf(c),0);
+const ingCredits = () => { const t = takenAll(); return latestByCode(ingCourses()).filter(c=>!findCourse(c.code,c.name,t)).reduce((s,c)=>s+crOf(c),0); };
+const planCredits = () => { const t = takenAll().concat(ingCourses()); return latestByCode(planCourses()).filter(c=>!findCourse(c.code,c.name,t)).reduce((s,c)=>s+crOf(c),0); };
+
+/* ── 재수강: 같은 과목 n번째 수강 → 최고 성적 상한 (2번째 A0, 3번째 B+, 4번째 B0 …) ── */
+const courseKey = c => up(c.code) || ('#'+normName(c.name));
+function attempts(){
+  const g = {}; S.courses.forEach(c=>{ (g[courseKey(c)] = g[courseKey(c)] || []).push(c); });
+  const info = {};
+  Object.values(g).forEach(list=>{ list.sort((a,b)=>semIdx(a.sem)-semIdx(b.sem) || String(a.id).localeCompare(String(b.id)));
+    list.forEach((c,i)=>{ info[c.id] = { n:i+1, total:list.length, cap: i ? Math.max(1.0, 4.5 - 0.5*i) : 4.5, replaced: i < list.length-1 }; }); });
+  return info; }
+let ATT = {};
+const capLabel = v => Object.keys(GRADES).find(k=>GRADES[k]===v) || v.toFixed(1);
+function gpEff(c){ const g = gp(c.gr); if(g==null) return null; const a = ATT[c.id]; return a ? Math.min(g, a.cap) : g; }
+/* 요건 칩: [학수번호, 과목명, 상태, 과목id] */
+const chip = (code, name) => { const r = reqStatus(code, name); return [code, name, r.st, r.id]; };
+const mineChips = list => list.map(c=>[c.code, c.name, isIng(c)?'i':isPlan(c)?'p':'y', c.id]);
 
 /* ═══════════ 계산 엔진 ═══════════ */
 function compute(){
+  ATT = attempts();
   const def = s2Def(), deep = isDeep();
-  const taken = takenAll();
+  const taken = countedAll();
   /* 1) 겹치는 과목 찾기 */
   const rows = taken.map(c=>{
     const biz = BIZ_MAJOR_CATS.includes(c.cat) ? c.cat : null;
@@ -656,111 +734,129 @@ function compute(){
   /* 2) 중복인정 배정 — 양쪽 필수 > 한쪽 필수 > 먼저 들은 과목 순 */
   const cap = def && def.dual ? def.dual.cap||0 : 0;
   const bizReq = r => r.biz==='전공필수' || r.biz==='경제학필수' || r.biz==='학문의기초';
+  const prio = r => (bizReq(r)?1:0) + (s2Required(def,r.c.code)?1:0);
   const cand = rows.filter(r=>r.overlap && (!r.c.side || r.c.side==='auto'))
-    .sort((a,b)=> ((bizReq(b)?1:0)+(s2Required(def,b.c.code)?1:0)) - ((bizReq(a)?1:0)+(s2Required(def,a.c.code)?1:0))
-               || semIdx(a.c.sem)-semIdx(b.c.sem) || String(a.c.id).localeCompare(String(b.c.id)));
+    .sort((a,b)=> prio(b)-prio(a) || semIdx(a.c.sem)-semIdx(b.c.sem) || String(a.c.id).localeCompare(String(b.c.id)));
   let left = cap; const dualIds = new Set();
   cand.forEach(r=>{ const v=crOf(r.c); if(v>0 && left>=v){ dualIds.add(r.c.id); left-=v; } });
-  /* 3) 나머지 겹치는 과목은 한쪽에만 */
+  /* 3) 나머지 겹치는 과목은 한쪽에만 — 직접 고른 쪽 > 필수인 쪽 > 더 많이 모자란 쪽 */
+  const bizHave = {}; const s2Have = { v:0 }; const areaHave = {};
+  const addS2 = c => { s2Have.v += crOf(c); const a=up(c.code).slice(0,4); areaHave[a]=(areaHave[a]||0)+crOf(c); };
+  rows.forEach(r=>{ if(!r.overlap || dualIds.has(r.c.id)){ if(r.biz) bizHave[r.biz]=(bizHave[r.biz]||0)+crOf(r.c); if(r.s2) addS2(r.c); } });
+  rows.filter(r=>r.overlap && !dualIds.has(r.c.id)).sort((a,b)=>semIdx(a.c.sem)-semIdx(b.c.sem)).forEach(r=>{
+    let side;
+    if(r.c.side==='biz' || r.c.side==='s2') side = r.c.side;
+    else if(bizReq(r)) side = 'biz';
+    else if(s2Required(def, r.c.code)) side = 's2';
+    else {
+      /* 2전공은 지정 과목이 필요하고 경영 전공선택은 BUSS 아무 과목으로 채울 수 있으니, 2전공이 덜 찼으면 2전공 우선.
+         단 금융공학처럼 학과별 상한(12학점)이 있으면 꽉 찬 학과 과목은 경영으로 */
+      const a = up(r.c.code).slice(0,4);
+      const areaFull = def.areaCap && (areaHave[a]||0) + crOf(r.c) > def.areaCap.cr;
+      side = ((def.total||0) - s2Have.v > 0 && !areaFull) ? 's2' : 'biz'; }
+    if(side==='biz') bizHave[r.biz]=(bizHave[r.biz]||0)+crOf(r.c); else addS2(r.c);
+    r.side = side;
+  });
   rows.forEach(r=>{
     if(!r.overlap){ r.toBiz = !!r.biz; r.toS2 = r.s2; return; }
     if(dualIds.has(r.c.id)){ r.toBiz = r.toS2 = true; r.dual = true; return; }
-    const side = r.c.side==='biz' ? 'biz' : r.c.side==='s2' ? 's2' : (bizReq(r) ? 'biz' : 's2');
-    r.toBiz = side==='biz'; r.toS2 = side==='s2';
+    r.toBiz = r.side==='biz'; r.toS2 = r.side==='s2';
   });
   const bizSet = rows.filter(r=>r.toBiz).map(r=>r.c), s2Set = rows.filter(r=>r.toS2).map(r=>r.c);
   const s2Raw = rows.filter(r=>r.s2).reduce((s,r)=>s+crOf(r.c),0);
   const dualList = rows.filter(r=>r.dual).map(r=>r.c);
   const dualUsed = dualList.reduce((s,c)=>s+crOf(c),0);
   const th = def && def.dual ? def.dual.overThreshold||0 : 0;
+  const ing = PLAN_VIEW ? [] : S.courses.filter(c=>isIng(c)||isPlan(c));   // 아직 안 센 과목 (칩으로만 표시)
 
   /* 4) 경영 */
-  const cr = cat => bizSet.filter(c=>c.cat===cat).reduce((s,c)=>s+crOf(c),0);
+  const inCat = cat => bizSet.filter(c=>c.cat===cat);
+  const cr = cat => inCat(cat).reduce((s,c)=>s+crOf(c),0);
   const libCr = cat => taken.filter(c=>c.cat===cat).reduce((s,c)=>s+crOf(c),0);
   const genNeed = GEN_REQ.reduce((s,g)=>s+g[2],0);
-  const engN = taken.filter(c=>c.eng && /^BUSS/i.test(c.code||'')).length;
-  const st = code => hasCode(code) ? 'y' : ingCode(code) ? 'i' : '';
+  const engList = taken.filter(c=>c.eng && /^BUSS/i.test(c.code||''));
+  const selPool = BIZ.filter(c=>c.cat==='전공선택').map(c=>[c.code,c.name]).concat(BIZ_ALT.map(x=>[x[0],x[1]+' (타학과 인정)']));
+  const withIng = (list, cat) => mineChips(list.concat(ing.filter(c=>c.cat===cat && !findCourse(c.code,c.name,list))));
   const biz = [
-    { k:'교양필수', got:libCr('교양필수'), need:genNeed, items:GEN_REQ.map(g=>[g[1].replace('[진로·창업] ',''), st(g[0])]), done:GEN_REQ.every(g=>hasCode(g[0])) },
-    { k:'학문의기초', got:cr('학문의기초'), need:12, items:BASIC_REQ.map(c=>[nameOf(c),st(c)]), done:BASIC_REQ.every(hasCode) },
-    { k:'전공필수', got:cr('전공필수'), need:24, items:MAJOR_REQ.map(c=>[nameOf(c),st(c)]), done:MAJOR_REQ.every(hasCode) },
-    { k:'전공선택', got:cr('전공선택'), need:deep?42:15, note:deep?'심화: 제1전공 15 + 심화 27':'BUSS 전공선택 + 타학과 인정과목' },
-    { k:'경제학 필수', got:cr('경제학필수'), need:6, items:ECON_REQ.map(c=>[nameOf(c),st(c)]), done:ECON_REQ.every(hasCode) },
-    { k:'영어강의', got:engN, need:deep?10:8, unit:'과목', note:'학수번호 BUSS 영어강의만 인정' } ];
-  if(deep) biz.push({ k:'전공 합계 (심화)', got:cr('전공필수')+cr('전공선택'), need:66, note:'전공필수 24 + 전공선택 42' });
-  biz.forEach(r=>{ if(r.done===undefined) r.done = r.got>=r.need; });
+    { k:'교양필수', got:libCr('교양필수'), need:genNeed, items:GEN_REQ.map(g=>chip(g[0], g[1].replace(/\[[^\]]*\]\s*/,''))), all:true },
+    { k:'학문의기초', got:cr('학문의기초'), need:12, items:BASIC_REQ.map(c=>chip(c,nameOf(c))), all:true },
+    { k:'전공필수', got:cr('전공필수'), need:24, items:MAJOR_REQ.map(c=>chip(c,nameOf(c))), all:true },
+    { k:'전공선택', got:cr('전공선택'), need:deep?42:15, note:deep?'심화: 제1전공 15 + 심화 27':'BUSS 전공선택 + 타학과 인정과목', mine:withIng(inCat('전공선택'),'전공선택'), pool:selPool },
+    { k:'경제학 필수', got:cr('경제학필수'), need:6, items:ECON_REQ.map(c=>chip(c,nameOf(c))), all:true },
+    { k:'영어강의', got:engList.length, need:deep?10:8, unit:'과목', note:'학수번호 BUSS 영어강의만 인정', mine:mineChips(engList), pool:BIZ.filter(c=>c.eng).map(c=>[c.code,c.name+' (영강 분반 있음)']) } ];
+  if(deep) biz.push({ k:'전공 합계 (심화)', got:cr('전공필수')+cr('전공선택'), need:66, note:'전공필수 24 + 전공선택 42', mine:mineChips(inCat('전공필수').concat(inCat('전공선택'))) });
+  const okSt = x => PLAN_VIEW ? !!x[2] : x[2]==='y';
+  biz.forEach(r=>{ r.done = r.all ? (r.items.every(okSt) && r.got>=r.need) : r.got>=r.need; });
 
   /* 5) 2전공 */
   let s2 = null;
-  if(def) s2 = evalS2(def, s2Set, st);
-  if(s2){ s2.dual = { used:dualUsed, cap, list:dualList, raw:s2Raw, th,
-      confirmed: th ? s2Raw > th : true, note:def.dual.note }; }
+  if(def) s2 = evalS2(def, s2Set, ing);
+  if(s2){ s2.dual = { used:dualUsed, cap, list:dualList, raw:s2Raw, th, confirmed: th ? s2Raw > th : true, note:def.dual.note }; }
 
   /* 6) 평점 */
   const graded = latestByCode(S.courses.filter(c=>{ const g=gp(c.gr); return g!=null && crOf(c)>0; }));
-  const avg = list => { let p=0,t=0; list.forEach(c=>{ p+=gp(c.gr)*crOf(c); t+=crOf(c); }); return t? {avg:p/t, cr:t, n:list.length} : {avg:null, cr:0, n:0}; };
-  const s2Codes = new Set(s2Set.map(c=>up(c.code)));
+  const avg = list => { let p=0,t=0; list.forEach(c=>{ p+=gpEff(c)*crOf(c); t+=crOf(c); }); return t? {avg:p/t, cr:t, n:list.length} : {avg:null, cr:0, n:0}; };
+  const rowOf = c => rows.find(x=>x.c.id===c.id);
   const gpa = {
     all: avg(graded),
-    biz: avg(graded.filter(c=>{ if(c.cat!=='전공필수' && c.cat!=='전공선택') return false;
-      const r = rows.find(x=>up(x.c.code)===up(c.code)); return !r || !r.overlap || r.toBiz; })),
+    biz: avg(graded.filter(c=>{ if(c.cat!=='전공필수' && c.cat!=='전공선택') return false; const r=rowOf(c); return !r || !r.overlap || r.toBiz; })),
     lib: avg(graded.filter(c=>LIB_CATS.includes(c.cat))),
-    s2 : def ? avg(graded.filter(c=>s2Member(def,c.code) && (s2Codes.has(up(c.code)) || !BIZ_MAJOR_CATS.includes(c.cat)))) : null };
-  return { def, deep, biz, s2, gpa, total: totalCredits(), ing: ingCredits(), engN, rows };
+    s2 : def ? avg(graded.filter(c=>{ if(!s2Member(def,c.code)) return false; const r=rowOf(c); return !r || !r.overlap || r.toS2; })) : null };
+  return { def, deep, biz, s2, gpa, total: taken.reduce((s,c)=>s+crOf(c),0), done: totalCredits(), ing: ingCredits(), plan: planCredits(), engN: engList.length, rows };
 }
 
-function evalS2(def, set, st){
-  const crIn = (r, list) => list.filter(c=>inReq(r,c.code)).reduce((s,c)=>s+crOf(c),0);
-  const nIn  = (r, list) => list.filter(c=>inReq(r,c.code)).length;
-  const chipItems = r => {
-    if(r.list && r.list.length<=10) return r.list.map(([code,name])=>[name, st(code)]);
-    const mine = set.filter(c=>inReq(r,c.code)).map(c=>[c.name, 'y']);
-    const ing = ingCourses().filter(c=>inReq(r,c.code) && !hasCode(c.code)).map(c=>[c.name,'i']);
-    return mine.concat(ing); };
+function evalS2(def, set, ing){
+  const inR = (r,c) => inReqEx(def, r, c.code);
+  const crIn = (r, list=set) => list.filter(c=>inR(r,c)).reduce((s,c)=>s+crOf(c),0);
+  const nIn  = (r, list=set) => list.filter(c=>inR(r,c)).length;
+  const mineOf = (r, list=set) => mineChips(list.filter(c=>inR(r,c)).concat(ing.filter(c=>inR(r,c) && !findCourse(c.code,c.name,set))));
+  const poolOf = r => r.list ? r.list.map(x=>[x[0],x[1]]) : r.prefix ? DB.filter(d=>inReqEx(def,r,d.code)).map(d=>[d.code,d.name]) : null;
   const out = { title:def.title, short:def.short, type:def.type, need:def.total, reqs:[] };
 
   if(def===MAJORS.GGL){
     const [nec, lib, a1, a2, a3] = def.reqs;
-    const necCr = crIn(nec,set), libCr = Math.min(crIn(lib,set),3);
-    const areas = [a1,a2,a3].map(a=>({ r:a, cr:crIn(a,set), n:nIn(a,set) }));
+    const necCr = crIn(nec), libCr = Math.min(crIn(lib),3);
+    const areas = [a1,a2,a3].map(a=>({ r:a, cr:crIn(a), n:nIn(a) }));
     const selTot = areas.reduce((s,a)=>s+a.cr,0), selN = areas.reduce((s,a)=>s+a.n,0);
     const areaOK = areas.every(a=>a.cr>=6 && a.n>=2);
     out.got = necCr + libCr + selTot;
-    out.reqs.push({ k:nec.k, got:necCr, need:9, items:chipItems(nec), done:nec.list.every(x=>hasCode(x[0])) });
-    out.reqs.push({ k:lib.k, got:libCr, need:3, note:lib.note, items:chipItems(lib), pool:lib.list });
-    out.reqs.push({ k:'전공선택 합계', got:selTot, need:24, note:`${selN}과목 / 8과목 · ${areaOK?'영역별 최소요건 충족':'1·2·3영역 각 6학점(2과목) 이상 필요'}`, done: selTot>=24 && selN>=8 && areaOK });
-    areas.forEach(a=>out.reqs.push({ k:a.r.k, got:a.cr, need:6, note:`${a.n}과목 이수 · 최소 2과목`, items:chipItems(a.r), pool:a.r.list, done:a.cr>=6 && a.n>=2 }));
+    out.reqs.push({ k:nec.k, got:necCr, need:9, items:nec.list.map(x=>chip(x[0],x[1])), all:true });
+    out.reqs.push({ k:lib.k, got:libCr, need:3, note:lib.note, mine:mineOf(lib), pool:poolOf(lib) });
+    out.reqs.push({ k:'전공선택 합계', got:selTot, need:24, note:`${selN}과목 / 8과목 · ${areaOK?'영역별 최소요건 충족':'1·2·3영역 각 6학점(2과목) 이상 필요'}`,
+      done: selTot>=24 && selN>=8 && areaOK, mine:mineChips(set.filter(c=>[a1,a2,a3].some(a=>inR(a,c)))) });
+    areas.forEach(a=>out.reqs.push({ k:a.r.k, got:a.cr, need:6, note:`${a.n}과목 이수 · 최소 2과목`, mine:mineOf(a.r), pool:poolOf(a.r), done:a.cr>=6 && a.n>=2 }));
     out.extra = '추가 졸업요건: 공인영어성적 제출 (TOEIC 750 / TOEFL iBT 80 / TEPS 285 / IELTS 6.0 / TOSEL(A) 620)';
   }
   else if(def===MAJORS.FINENG){
     /* 영역(학과)별 최대 4과목·12학점까지만 인정 — 먼저 들은 과목부터 */
     const r = def.reqs[0]; const byArea = {};
-    set.filter(c=>inReq(r,c.code)).sort((a,b)=>semIdx(a.sem)-semIdx(b.sem)).forEach(c=>{
+    set.filter(c=>inR(r,c)).sort((a,b)=>semIdx(a.sem)-semIdx(b.sem)).forEach(c=>{
       const a = up(c.code).slice(0,4); const o = byArea[a] = byArea[a] || {cr:0,n:0,over:0};
       if(o.n < def.areaCap.n && o.cr + crOf(c) <= def.areaCap.cr){ o.cr += crOf(c); o.n++; } else o.over += crOf(c); });
     const got = Object.values(byArea).reduce((s,o)=>s+o.cr,0);
     out.got = got;
-    out.reqs.push({ k:'전공선택 합계', got, need:36, note:'지정 교과목 · 학과(영역)별 최대 4과목·12학점까지만 인정', pool:r.list });
+    out.reqs.push({ k:'전공선택 합계', got, need:36, note:'지정 교과목 · 학과(영역)별 최대 4과목·12학점까지만 인정', mine:mineOf(r), pool:poolOf(r) });
     const AREA_NM = {FNEG:'금융공학',MATH:'수학',BUSS:'경영',ECON:'경제',STAT:'통계',IMEN:'산업경영공학'};
     Object.keys(AREA_NM).forEach(a=>{ const o=byArea[a]||{cr:0,n:0,over:0};
+      const sub = { list: r.list.filter(x=>up(x[0]).startsWith(a)) };
       out.reqs.push({ k:AREA_NM[a]+' 영역', got:o.cr, need:12, cap:true, note:`${o.n}과목 인정 · 최대 12학점${o.over?` · 초과 ${fmt(o.over)}학점 불인정`:''}`,
-        items:set.filter(c=>up(c.code).startsWith(a) && inReq(r,c.code)).map(c=>[c.name,'y']) }); });
+        mine:mineChips(set.filter(c=>inReq(sub,c.code)).concat(ing.filter(c=>inReq(sub,c.code)))), pool:sub.list }); });
   }
   else {
     let got = 0;
     def.reqs.forEach(r=>{
-      const list = r.exclude ? set.filter(c=>!inReq(def.reqs.find(x=>x.k===r.exclude), c.code)) : set;
-      const c = crIn(r, list); got += Math.min(c, r.need);
-      const row = { k:r.k, got:c, need:r.need, note:r.note, pool:r.list };
-      if(r.list && r.list.length<=10){ row.items = chipItems(r); row.done = r.list.every(x=>hasCode(x[0])) && c>=r.need; }
-      else row.items = chipItems(r);
-      out.reqs.push(row); });
+      const c = crIn(r); got += Math.min(c, r.need);
+      const small = r.list && r.list.length<=10;
+      out.reqs.push(small ? { k:r.k, got:c, need:r.need, note:r.note, items:r.list.map(x=>chip(x[0],x[1])), all:true }
+                          : { k:r.k, got:c, need:r.need, note:r.note, mine:mineOf(r), pool:poolOf(r) });
+    });
     if(def.deptMin){
-      def.deptMin.depts.forEach(([p,nm])=>{ const c = set.filter(x=>up(x.code).startsWith(p)).reduce((s,x)=>s+crOf(x),0);
-        out.reqs.push({ k:nm+' 이수', got:c, need:def.deptMin.min, note:'참여학과별 최소 6학점 (전공필수 포함)' }); }); }
+      const allList = def.reqs.flatMap(r=>r.list||[]);
+      def.deptMin.depts.forEach(([p,nm])=>{ const sub = { list: allList.filter(x=>up(x[0]).startsWith(p)) };
+        out.reqs.push({ k:nm+' 이수', got:crIn(sub), need:def.deptMin.min, note:`${p} 과목 · 참여학과별 최소 6학점 (전공필수 포함)`, mine:mineOf(sub), pool:sub.list }); }); }
     out.got = got;
   }
-  out.reqs.forEach(r=>{ if(r.done===undefined) r.done = r.cap ? false : r.got>=r.need; });
+  out.reqs.forEach(r=>{ if(r.done===undefined) r.done = r.cap ? false : r.all ? (r.items.every(x=>PLAN_VIEW ? !!x[2] : x[2]==='y') && r.got>=r.need) : r.got>=r.need; });
   return out;
 }
 
@@ -768,13 +864,13 @@ function evalS2(def, set, st){
 function semStats(){
   return sortedSems().map(sm=>{
     const idx = semIdx(sm), inSem = S.courses.filter(c=>c.sem===sm);
-    let p=0,t=0; inSem.forEach(c=>{ const g=gp(c.gr), v=crOf(c); if(g!=null && v>0){ p+=g*v; t+=v; } });
+    let p=0,t=0; inSem.forEach(c=>{ const g=gpEff(c), v=crOf(c); if(g!=null && v>0){ p+=g*v; t+=v; } });
     let cp=0, ct=0;
-    latestByCode(S.courses.filter(c=>semIdx(c.sem)<=idx && gp(c.gr)!=null && crOf(c)>0)).forEach(c=>{ cp+=gp(c.gr)*crOf(c); ct+=crOf(c); });
+    latestByCode(S.courses.filter(c=>semIdx(c.sem)<=idx && gp(c.gr)!=null && crOf(c)>0)).forEach(c=>{ cp+=gpEff(c)*crOf(c); ct+=crOf(c); });
     const ing = inSem.some(isIng);
     return { sem:sm, label:semLabel(sm), n:inSem.length, gpa:t? p/t : null, cum: ct? cp/ct : null,
-      earned: inSem.filter(c=>!isIng(c) && !isFail(c)).reduce((a,c)=>a+crOf(c),0),
-      enrolled: inSem.reduce((a,c)=>a+crOf(c),0), ing };
+      earned: inSem.filter(c=>!isIng(c) && !isPlan(c) && !isFail(c)).reduce((a,c)=>a+crOf(c),0),
+      enrolled: inSem.filter(c=>!isPlan(c)).reduce((a,c)=>a+crOf(c),0), ing, plan: inSem.length>0 && inSem.every(isPlan) };
   });
 }
 /* 학점 환산 (4.5 만점 기준) */
@@ -911,41 +1007,61 @@ const OPEN = new Set(), SEM_OPEN = new Set();
 const $ = id => document.getElementById(id);
 const chevSvg = '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>';
 
-/* ── 요건 한 줄 ── */
-function reqRow(r, key){
-  const done = r.done, id = key + r.k.replace(/\W/g,'');
-  const left = Math.max(0, r.need - r.got);
-  const sub = r.cap ? r.note : done ? '완료했어요' : (r.note ? r.note : `${fmt(left)}${r.unit||'학점'} 남았어요`);
-  const hasDetail = (r.items && r.items.length) || r.pool;
-  return `<div class="row ${done?'done':''} ${r.cap?'capr':''}" ${hasDetail?`onclick="togRow('${id}')"`:''}>
+/* 교양필수는 학기마다 학수번호가 달라 임시 코드(GEN0xx)로 관리 → 저장할 땐 비워서 과목명으로 매칭 */
+const isFakeCode = c => /^GEN0\d\d$/.test(up(c));
+/* ── 요건 한 줄 (누르면 펼쳐짐) ── */
+let ROWREG = {};
+const chipHTML = ([code,name,st,id]) => `<span class="${st}" onclick="event.stopPropagation();chipTap('${esc(code)}','${id||''}')">${st==='y'?'✓ ':st==='i'?'수강중 · ':st==='p'?'계획 · ':'+ '}${esc(name)}</span>`;
+function chipTap(code, id, plan){ if(id) openCourse({id}); else openCourse({code, plan: plan || PLAN_VIEW}); }
+function reqRow(r, key, idx){
+  const id = 'rq-'+key+idx; ROWREG[id] = r;
+  const done = r.done, left = Math.max(0, r.need - r.got);
+  let sub = r.cap ? r.note : done ? (PLAN_VIEW ? '계획대로면 채워요' : '완료했어요') : (r.note ? r.note : `${fmt(left)}${r.unit||'학점'} ${PLAN_VIEW?'부족해요':'남았어요'}`);
+  const pg = r.planGot!=null && r.planGot > r.got ? r.planGot : null;
+  if(pg!=null && !done) sub += ` · 계획 포함 ${fmt(pg)}${r.unit||''}`;
+  const itemsHTML = r.items ? `<div class="tags">${r.items.map(chipHTML).join('')}</div><div class="hint2">과목을 누르면 ${'바로 추가·수정'}할 수 있어요</div>` : '';
+  const mineHTML = r.mine ? (r.mine.length ? `<div class="dlab">인정된 과목</div><div class="tags">${r.mine.map(chipHTML).join('')}</div>` : `<div class="mut s">아직 인정된 과목이 없어요</div>`) : '';
+  const poolHTML = r.pool ? `<button class="linkbtn" onclick="event.stopPropagation();showPool('${id}')">인정 과목 ${r.pool.length}개 보기 · 눌러서 추가</button>` : '';
+  const has = !!(r.items || r.mine || r.pool);
+  return `<div class="row ${done?'done':''} ${r.cap?'capr':''} ${OPEN.has(id)?'open':''}" ${has?`onclick="togRow('${id}')" role="button" aria-expanded="${OPEN.has(id)}"`:''} id="${id}-h">
     <div class="ic">${done?'✓':Math.round(pct(r.got,r.need))+'%'}</div>
-    <div class="m"><b>${esc(r.k)}</b><small>${esc(sub)}</small><div class="pb"><i style="width:${pct(r.got,r.need)}%"></i></div></div>
-    <div class="r">${fmt(r.got)}<small>/ ${r.need}${r.unit||''}</small></div>${hasDetail?chevSvg:''}</div>
-    ${hasDetail?`<div class="detail ${OPEN.has(id)?'on':''}" id="${id}">
-      ${r.items && r.items.length ? `<div class="tags">${r.items.map(([n,s])=>`<span class="${s}">${s==='y'?'✓ ':s==='i'?'수강중 · ':''}${esc(n)}</span>`).join('')}</div>` : '<div class="mut s">아직 들은 과목이 없어요</div>'}
-      ${r.pool ? `<button class="linkbtn" onclick="event.stopPropagation();showPool('${esc(r.k)}','${key}')">인정 과목 ${r.pool.length}개 보기</button>`:''}
-    </div>`:''}`;
+    <div class="m"><b>${esc(r.k)}</b><small>${esc(sub)}</small><div class="pb"><i style="width:${pct(r.got,r.need)}%"></i>${pg!=null?`<i class="pl" style="width:${Math.max(0,pct(pg,r.need)-pct(r.got,r.need))}%"></i>`:''}</div></div>
+    <div class="r">${fmt(r.got)}<small>/ ${r.need}${r.unit||''}</small></div>${has?chevSvg:''}</div>
+    ${has?`<div class="detail ${OPEN.has(id)?'on':''}" id="${id}">${itemsHTML}${mineHTML}${poolHTML}</div>`:''}`;
 }
-function togRow(id){ OPEN.has(id)?OPEN.delete(id):OPEN.add(id); const e=$(id); if(e) e.classList.toggle('on'); }
+function togRow(id){ OPEN.has(id)?OPEN.delete(id):OPEN.add(id); const e=$(id), h=$(id+'-h'); if(e) e.classList.toggle('on'); if(h) h.classList.toggle('open'); }
 let LAST = null;
-function showPool(k, key){
-  const src = key==='b' ? LAST.s2.reqs.find(r=>r.k===k) : null; if(!src || !src.pool) return;
-  const html = src.pool.map(([code,name])=>{ const s = hasCode(code)?'y':ingCode(code)?'i':'';
-    return `<div class="pi ${s}" onclick="closeSheet();openCourse({code:'${code}'})"><small>${code}</small><span>${esc(name)}</span><em>${s==='y'?'✓':s==='i'?'수강중':''}</em></div>`; }).join('');
-  openSheet(`<h3>${esc(k)}</h3><p class="mut s">과목을 누르면 바로 추가할 수 있어요</p><div class="plist">${html}</div>`);
+function filterPool(v){ v=up(v).toLowerCase(); document.querySelectorAll('#plist .pi').forEach(e=>{ e.style.display = !v || e.textContent.replace(/\s/g,'').toLowerCase().includes(v) ? '' : 'none'; }); }
+function showPool(id){
+  const r = ROWREG[id]; if(!r || !r.pool) return;
+  const html = r.pool.map(([code,name])=>{ const q = reqStatus(code, name);
+    return `<div class="pi ${q.st}" onclick="closeSheet();chipTap('${esc(code)}','${q.id||''}')"><small>${esc(code)}</small><span>${esc(name)}</span><em>${q.st==='y'?'✓ 이수':q.st==='i'?'수강중':'+ 추가'}</em></div>`; }).join('');
+  openSheet(`<h3>${esc(r.k)} 인정 과목</h3><p class="mut s">과목을 누르면 바로 추가(이미 있으면 수정)할 수 있어요</p>
+    ${r.pool.length>12?`<div class="search">🔍<input placeholder="과목명·학수번호로 찾기" oninput="filterPool(this.value)"></div>`:''}<div class="plist" id="plist">${html}</div>`);
 }
 
 /* ═══════════ 졸업요건 화면 ═══════════ */
 function renderGrad(){
+  ROWREG = {};
+  /* 계획 포함 계산을 한 번 더 해서 줄마다 '계획 포함 N' 표시 */
+  let RP = null;
+  if(!PLAN_VIEW && S.courses.some(c=>isIng(c)||isPlan(c))){ PLAN_VIEW = true; RP = compute(); PLAN_VIEW = false; }
   const R = LAST = compute(), solo = !R.s2;
+  if(RP){ R.biz.forEach((r,i)=>r.planGot = RP.biz[i] && RP.biz[i].got); if(R.s2 && RP.s2) R.s2.reqs.forEach((r,i)=>r.planGot = RP.s2.reqs[i] && RP.s2.reqs[i].got); }
   document.body.classList.toggle('solo', solo);
   if(solo && SEG==2) SEG = 1;
   document.body.dataset.seg = SEG;
-  const left = Math.max(0, 130 - R.total);
-  $('hero').innerHTML = `<div class="k">졸업까지</div>
-    <h1>${left? `<em>${fmt(left)}학점</em> 남았어요` : '<em>130학점</em> 다 채웠어요'}${R.ing?`<br>이번 학기 끝나면 ${fmt(Math.max(0,left-R.ing))}학점`:''}</h1>
-    <div class="big-pb"><i style="width:${pct(R.total,130)}%"></i><i class="ing" style="width:${pct(R.ing,130)}%"></i></div>
-    <div class="legend"><span>이수 ${fmt(R.total)}</span>${R.ing?`<span class="ing">수강중 ${fmt(R.ing)}</span>`:''}<span class="plain">평점 기준 1.75 이상</span></div>`;
+  const left = Math.max(0, 130 - R.done), afterIng = Math.max(0, left - R.ing), afterPlan = Math.max(0, afterIng - R.plan);
+  const short = PLAN_VIEW ? R.biz.concat(R.s2 ? R.s2.reqs : []).filter(r=>!r.done && !r.cap) : [];
+  $('hero').innerHTML = `<div class="k">${PLAN_VIEW?'계획대로 들으면':'졸업까지'}</div>
+    <h1>${PLAN_VIEW
+        ? (afterPlan ? `<em>${fmt(afterPlan)}학점</em> 더 필요해요` : `<em>130학점</em> 채워요`) + (short.length ? `<br>채워야 할 요건 ${short.length}개` : afterPlan ? '' : '<br>요건도 다 채워요 🎓')
+        : (left? `<em>${fmt(left)}학점</em> 남았어요` : '<em>130학점</em> 다 채웠어요') + (R.ing?`<br>이번 학기 끝나면 ${fmt(afterIng)}학점`:'')}</h1>
+    <div class="big-pb"><i style="width:${pct(R.done,130)}%"></i><i class="ing" style="width:${pct(R.ing,130)}%"></i><i class="pl" style="width:${pct(R.plan,130)}%"></i></div>
+    <div class="legend"><span>이수 ${fmt(R.done)}</span>${R.ing?`<span class="ing">수강중 ${fmt(R.ing)}</span>`:''}${R.plan?`<span class="pl">계획 ${fmt(R.plan)}</span>`:''}<span class="plain">평점 기준 1.75 이상</span></div>
+    ${short.length?`<div class="shortlist">${short.map(r=>`<span>${esc(r.k)} <b>${fmt(Math.max(0,r.need-r.got))}${r.unit||'학점'}</b></span>`).join('')}</div>`:''}
+    <label class="plansw" onclick="togglePlanView()"><span><b>계획 포함해서 보기</b><small>수강중·계획 과목을 들었다고 치고 계산</small></span><span class="set-sw ${PLAN_VIEW?'on':''}"></span></label>`;
+  renderRemain(R);
   const G = R.gpa;
   $('nums').innerHTML = `
     <div><small>전체 평점</small><b>${g2(G.all.avg)}</b><em>${G.all.avg!=null?'100점 '+to100(G.all.avg).toFixed(1):'성적 입력 필요'}</em></div>
@@ -954,7 +1070,7 @@ function renderGrad(){
            : `<div><small>${esc(R.s2.short)} 평점</small><b>${g2(G.s2&&G.s2.avg)}</b><em>2전공 인정 과목</em></div>`}`;
   $('seg').innerHTML = (solo?[[1,R.deep?'경영 (심화)':'경영'],[3,'성적 추이']]:[[1,'경영'],[2,R.s2.short],[3,'성적 추이']])
     .map(([k,l])=>`<button class="${SEG==k?'on':''}" onclick="SEG=${k};renderGrad()">${esc(l)}</button>`).join('');
-  $('box1').innerHTML = `<h2>경영학과 ${R.deep?'<span class="tag">심화</span>':''}<span class="sp"></span><small>26학번 · ${R.deep?'전공 66':'전공 39'}</small></h2>${R.biz.map(r=>reqRow(r,'a')).join('')}`;
+  $('box1').innerHTML = `<h2>경영학과 ${R.deep?'<span class="tag">심화</span>':''}<span class="sp"></span><small>26학번 · ${R.deep?'전공 66':'전공 39'}</small></h2>${R.biz.map((r,i)=>reqRow(r,'a',i)).join('')}`;
   const b2 = $('box2');
   if(R.deep){ b2.innerHTML=''; b2.style.display='none'; }
   else if(solo){ b2.style.display=''; b2.innerHTML = `<div class="none2"><b>2전공을 아직 안 골랐어요</b>정하면 여기에 요건이 떠요.<br>오른쪽 위 ⋮ → 전공 구성 바꾸기</div>`; }
@@ -964,7 +1080,7 @@ function renderGrad(){
     const dualTxt = D.cap ? `중복인정 <b>${fmt(D.used)}/${D.cap}학점</b>${D.list.length?' · '+D.list.map(c=>esc(c.name)).join(', '):''}<br>${esc(D.note)}${D.th?` · 지금 ${fmt(D.raw)}학점 → ${D.confirmed?'확정':D.th+'학점 넘으면 확정'}`:''}` : '';
     b2.innerHTML = `<h2>${esc(R.s2.title)} <span class="tag">${R.s2.type}전공</span><span class="sp"></span><small>${fmt(R.s2.got)} / ${R.s2.need}</small></h2>
       <div class="tot"><div class="big-pb sm"><i style="width:${pct(R.s2.got,R.s2.need)}%"></i></div></div>
-      ${R.s2.reqs.map(r=>reqRow(r,'b')).join('')}
+      ${R.s2.reqs.map((r,i)=>reqRow(r,'b',i)).join('')}
       ${dualTxt?`<div class="dualline">${dualTxt}</div>`:''}${R.s2.extra?`<div class="dualline">${esc(R.s2.extra)}</div>`:''}`;
   }
   $('boxT').innerHTML = trendHTML('m'); $('boxT2').innerHTML = trendHTML('d');
@@ -980,13 +1096,17 @@ function renderSems(){
     const cs = S.courses.filter(c=>c.sem===s), st = semStats().find(x=>x.sem===s), on = SEM_OPEN.has(s);
     const season = /-(S|W)$/.test(s);
     return `<div class="sem ${on?'open':''}" id="sem-${s}">
-      <div class="h" onclick="semTog('${s}')"><b>${semLabel(s)}</b><small>${cs.length? cs.length+'과목 · '+fmt(st.enrolled)+'학점':'비어 있음'}</small><span class="sp"></span>
-        ${st.gpa!=null?`<span class="g">${st.gpa.toFixed(2)}</span>`:st.ing?'<span class="ingb">수강중</span>':''}${chevSvg}</div>
+      <div class="h" onclick="semTog('${s}')"><b>${semLabel(s)}</b><small>${cs.length? cs.length+'과목 · '+fmt(cs.reduce((a,c)=>a+crOf(c),0))+'학점':'비어 있음'}</small><span class="sp"></span>
+        ${st.gpa!=null?`<span class="g">${st.gpa.toFixed(2)}</span>`:st.ing?'<span class="ingb">수강중</span>':st.plan?'<span class="planb">계획</span>':''}${chevSvg}</div>
       ${cs.length?`<div class="peek">${cs.map(c=>esc(c.name)).join(' · ')}</div>`:''}
       <div class="body"><div>
         ${cs.map(c=>{ const r=rowsById[c.id]; const tag = r && r.overlap ? (r.dual?' · 중복인정':r.toS2?' · 2전공으로':' · 경영으로') : '';
-          return `<div class="co" onclick="openCourse({id:'${c.id}'})"><div class="n">${esc(c.name)}<small>${esc(c.cat==='2전공' && s2Def() ? s2Def().short : c.cat)} · ${fmt(crOf(c))}학점${c.eng?' · 영강':''}${tag}</small></div><span class="gr ${isIng(c)?'ing':''}">${esc(c.gr)}</span></div>`; }).join('')}
-        <div class="semact"><button class="addc" onclick="openCourse({sem:'${s}'})">+ ${semLabel(s)}에 과목 추가</button>
+          const a = ATT[c.id] || {n:1}; const g = gp(c.gr), capped = g!=null && a.n>1 && g > a.cap;
+          const rt = a.replaced ? '<em class="rt old">재수강으로 대체됨</em>' : a.n>1 ? `<em class="rt">${a.n===2?'재수강':a.n+'번째 수강'} · 최고 ${capLabel(a.cap)}</em>` : '';
+          return `<div class="co ${a.replaced?'replaced':''}" onclick="openCourse({id:'${c.id}'})"><div class="n">${esc(c.name)} ${rt}<small>${esc(c.cat==='2전공' && s2Def() ? s2Def().short : c.cat)} · ${fmt(crOf(c))}학점${c.eng?' · 영강':''}${tag}</small></div>
+            <span class="gr ${isIng(c)?'ing':isPlan(c)?'plan':''}">${capped?`<s>${esc(c.gr)}</s> ${capLabel(a.cap)}`:esc(c.gr)}</span></div>`; }).join('')}
+        ${cs.some(isPlan)?`<button class="convbtn" onclick="planToIng('${s}')">이 학기 계획 과목 → 수강중으로 바꾸기</button>`:''}
+        <div class="semact"><button class="addc" onclick="openCourse({sem:'${s}', plan:isFutureSem('${s}')})">+ ${semLabel(s)}에 ${isFutureSem(s)?'계획 과목 담기':'과목 추가'}</button>
           <button class="delsem" onclick="delSem('${s}')" title="학기 삭제">학기 삭제</button></div>
       </div></div></div>`; }).join('');
   $('alltog').textContent = sortedSems().every(s=>SEM_OPEN.has(s)) ? '모두 접기' : '모두 펼치기';
@@ -1010,27 +1130,66 @@ function delSem(s){
   if(!confirm(n? `${semLabel(s)}과 그 안의 과목 ${n}개를 지울까요?` : `${semLabel(s)}을 지울까요?`)) return;
   S.sems = S.sems.filter(x=>x!==s); S.courses = S.courses.filter(c=>c.sem!==s); touch(); renderGrad(); }
 
+/* ── 수강계획 도우미 ── */
+function lastActiveSem(){ const act = sortedSems().filter(s=>S.courses.some(c=>c.sem===s && !isPlan(c))); return act[act.length-1] || null; }
+function isFutureSem(s){ const a = lastActiveSem(); return !!a && semIdx(s) > semIdx(a); }
+function nextSem(){ const a = lastActiveSem(); const reg = sortedSems().filter(s=>/-(1|2)$/.test(s));
+  return (a ? reg.find(s=>semIdx(s) > semIdx(a)) : reg[0]) || (addSemSilently()); }
+function addSemSilently(){ const reg = sortedSems().filter(s=>/-(1|2)$/.test(s)); const last = reg[reg.length-1] || "0-2";
+  let [y,t] = last.split('-').map(Number); if(t===1) t=2; else { y++; t=1; } const n=y+'-'+t; S.sems.push(n); return n; }
+function planToIng(s){ const n = S.courses.filter(c=>c.sem===s && isPlan(c)).length;
+  if(!confirm(`${semLabel(s)} 계획 과목 ${n}개를 수강중으로 바꿀까요?`)) return;
+  S.courses.forEach(c=>{ if(c.sem===s && isPlan(c)) c.gr='수강중'; }); touch(); renderGrad(); }
+function togglePlanView(){ PLAN_VIEW = !PLAN_VIEW; try{ localStorage.setItem(LS_NS+':planview', PLAN_VIEW?'1':''); }catch(e){} renderGrad(); }
+/* 남은 필수과목 (계획 포함 보기에서만) */
+function renderRemain(R){
+  const el = $('boxR'); if(!el) return;
+  if(!PLAN_VIEW){ el.style.display='none'; el.innerHTML=''; return; }
+  const groups = [];
+  R.biz.filter(r=>r.items).forEach(r=>{ const miss = r.items.filter(x=>!x[2]); if(miss.length) groups.push(['경영 '+r.k, miss]); });
+  if(R.s2) R.s2.reqs.filter(r=>r.items).forEach(r=>{ const miss = r.items.filter(x=>!x[2]); if(miss.length) groups.push([R.s2.short+' '+r.k, miss]); });
+  el.style.display='';
+  el.innerHTML = `<h2>남은 필수과목 <span class="sp"></span><small>${groups.reduce((a,g)=>a+g[1].length,0)}개</small></h2>`
+    + (groups.length ? groups.map(([t,a])=>`<div class="grp"><div class="dlab">${esc(t)}</div><div class="tags">${a.map(x=>`<span onclick="chipTap('${esc(x[0])}','',true)">+ ${esc(x[1])}</span>`).join('')}</div></div>`).join('')
+       + '<div class="hint2">누르면 다음 학기 계획으로 담겨요. 학기는 담을 때 바꿀 수 있어요.</div>'
+       : '<div class="mut s">필수과목은 계획까지 포함해서 다 채웠어요 👍</div>');
+}
+
 /* ── 과목 추가/수정 ── */
 let EDIT = null;
 function openCourse(o={}){
   const c = o.id ? S.courses.find(x=>x.id===o.id) : null;
   const d = o.code ? DBI[up(o.code)] : null;
   const curSem = sortedSems().find(s=>S.courses.some(x=>x.sem===s && isIng(x))) || sortedSems()[0];
-  EDIT = c ? Object.assign({}, c) : { id:null, name:d?d.name:'', code:d?d.code:'', cat:d?d.cat:'교양선택', cr:d?d.cr:3, gr:'수강중', sem:o.sem||curSem, eng:!!(d&&d.eng&&/^BUSS/.test(d.code)), side:'auto' };
+  EDIT = c ? Object.assign({}, c) : { id:null, name:d?d.name:'', code:d&&!isFakeCode(d.code)?d.code:'', cat:d?d.cat:'교양선택', cr:d?d.cr:3, gr:o.plan?'계획':'수강중', sem:o.sem||(o.plan?nextSem():curSem), eng:false, side:'auto' };
   openSheet(`<h3>${c?'과목 수정':'과목 추가'}</h3>
     ${c?'':`<div class="search">🔍<input id="cq" placeholder="과목명 또는 학수번호 (예: 마케팅원론, ECON201)" autocomplete="off" oninput="searchCourse()"></div><div class="res" id="cres"></div>`}
-    <div class="frow"><label>과목명<input id="cName" value="${esc(EDIT.name)}"></label><label class="w120">학수번호<input id="cCode" value="${esc(EDIT.code)}" oninput="EDIT.code=this.value;updOverlap()"></label></div>
+    <div class="frow"><label>과목명<input id="cName" value="${esc(EDIT.name)}"></label><label class="w120">학수번호<input id="cCode" value="${esc(EDIT.code)}" oninput="EDIT.code=this.value;updOverlap();updNotes()"></label></div>
     <div class="frow"><label>이수구분<select id="cCat" onchange="EDIT.cat=this.value;updOverlap()">${CATS.map(x=>`<option ${x===EDIT.cat?'selected':''}>${x}</option>`).join('')}</select></label>
       <label class="w84">학점<input id="cCr" type="number" step="0.5" min="0" value="${EDIT.cr}" inputmode="decimal"></label></div>
     <div class="frow"><label>성적<select id="cGr">${Object.keys(GRADES).map(g=>`<option ${g===EDIT.gr?'selected':''}>${g}</option>`).join('')}</select></label>
-      <label>학기<select id="cSem">${sortedSems().map(s=>`<option value="${s}" ${s===EDIT.sem?'selected':''}>${semLabel(s)}</option>`).join('')}</select></label></div>
-    <label class="chk"><input type="checkbox" id="cEng" ${EDIT.eng?'checked':''}> 영어강의</label>
+      <label>학기<select id="cSem" onchange="EDIT.sem=this.value;updNotes()">${sortedSems().map(s=>`<option value="${s}" ${s===EDIT.sem?'selected':''}>${semLabel(s)}</option>`).join('')}</select></label></div>
+    <div id="cNotes"></div>
+    <label class="chk"><input type="checkbox" id="cEng" ${EDIT.eng?'checked':''}> 영어강의로 들었어요</label><div class="hint2" id="cEngHint">${d&&d.eng?'이 과목은 영어강의 분반이 있어요. 영강 분반이었으면 체크하세요.':''}</div>
     <div id="cOv"></div>
     <button class="savebtn" onclick="saveCourse()">저장</button>
     ${c?`<button class="delbtn" onclick="delCourse('${c.id}')">이 과목 삭제</button>`:''}`);
-  updOverlap();
+  updOverlap(); updNotes();
   if(!c) setTimeout(()=>{ try{ $('cq').focus(); }catch(e){} }, 250);
 }
+/* 재수강·선수과목 안내 */
+const PREREQ = { BUSS254:'BUSS207', BUSS384:'BUSS207', BUSS386:'BUSS207', ECON201:'ECON171', ECON202:'ECON172',
+  BUSS238:'BUSS205', BUSS252:'BUSS205', BUSS342:'BUSS205', BUSS362:'BUSS205', BUSS363:'BUSS205', BUSS407:'BUSS205', BUSS454:'BUSS205', BUSS475:'BUSS205' };
+function updNotes(){
+  const el = $('cNotes'); if(!el || !EDIT) return; const out = [];
+  const nm = ($('cName')||{}).value || EDIT.name, key = up(EDIT.code) || ('#'+normName(nm));
+  const prev = S.courses.filter(c=>c.id!==EDIT.id && courseKey(c)===key && semIdx(c.sem) < semIdx(EDIT.sem));
+  if(prev.length){ const n = prev.length+1, cap = Math.max(1.0, 4.5-0.5*(n-1));
+    out.push(`<div class="note rt">${prev.map(c=>semLabel(c.sem)+' '+esc(c.gr)).join(', ')}에 이미 들었어요 → <b>${n===2?'재수강':n+'번째 수강'}</b>으로 저장돼요 · 최고 <b>${capLabel(cap)}</b>까지 인정</div>`); }
+  const pre = PREREQ[up(EDIT.code)];
+  if(pre){ const ok = S.courses.some(c=>up(c.code)===pre && !isFail(c) && semIdx(c.sem) < semIdx(EDIT.sem));
+    if(!ok) out.push(`<div class="note warn">선수과목 <b>${esc(nameOf(pre))}</b>을 이 학기 전에 들어야 해요</div>`); }
+  el.innerHTML = out.join(''); }
 function updOverlap(){
   const el = $('cOv'); if(!el) return; const def = s2Def();
   const ov = def && BIZ_MAJOR_CATS.includes(EDIT.cat) && s2Member(def, EDIT.code);
@@ -1044,17 +1203,17 @@ function searchCourse(){
   const def = s2Def();
   const hit = DB.filter(d=>d.name.replace(/\s/g,'').toLowerCase().includes(v) || d.code.toLowerCase().includes(v)).slice(0,40);
   el.innerHTML = hit.length ? hit.map(d=>{ const s2 = s2Member(def, d.code);
-    return `<div onclick="pickCourse('${d.code}')"><small>${d.code}</small><span>${esc(d.name)}</span><em>${esc(d.cat==='2전공'&&def?def.short:d.cat)}${s2&&d.cat!=='2전공'?' · '+esc(def.short):''}</em></div>`; }).join('')
+    return `<div onclick="pickCourse('${d.code}')"><small>${isFakeCode(d.code)?'교양필수':d.code}</small><span>${esc(d.name)}</span><em>${esc(d.cat==='2전공'&&def?def.short:d.cat)}${s2&&d.cat!=='2전공'?' · '+esc(def.short):''}</em></div>`; }).join('')
     : `<div class="none">목록에 없어요. 아래에 직접 적어도 돼요.</div>`;
 }
 function pickCourse(code){ const d = DBI[code]; if(!d) return;
-  EDIT.name=d.name; EDIT.code=d.code; EDIT.cat=d.cat; EDIT.cr=d.cr||3; EDIT.eng=!!(d.eng && /^BUSS/.test(d.code));
-  $('cName').value=d.name; $('cCode').value=d.code; $('cCat').value=d.cat; $('cCr').value=EDIT.cr; $('cEng').checked=EDIT.eng;
-  $('cres').innerHTML=''; $('cq').value=''; updOverlap(); }
+  EDIT.name=d.name; EDIT.code=isFakeCode(d.code)?'':d.code; EDIT.cat=d.cat; EDIT.cr=d.cr||3; EDIT.eng=false;
+  $('cName').value=d.name; $('cCode').value=EDIT.code; $('cCat').value=d.cat; $('cCr').value=EDIT.cr; $('cEng').checked=false; $('cEngHint').textContent = d.eng ? '이 과목은 영어강의 분반이 있어요. 영강 분반이었으면 체크하세요.' : '';
+  $('cres').innerHTML=''; $('cq').value=''; updOverlap(); updNotes(); }
 function saveCourse(){
   const name = $('cName').value.trim(); if(!name){ alert('과목명을 입력해 주세요'); return; }
   const o = { id: EDIT.id || ('c'+Date.now().toString(36)+Math.random().toString(36).slice(2,5)),
-    name, code: up($('cCode').value), cat: $('cCat').value, cr: parseFloat($('cCr').value)||0,
+    name, code: up($('cCode').value).replace(/[^A-Z0-9]/g,''), cat: $('cCat').value, cr: parseFloat($('cCr').value)||0,
     gr: $('cGr').value, sem: $('cSem').value, eng: $('cEng').checked, side: EDIT.side||'auto' };
   const i = S.courses.findIndex(x=>x.id===o.id); if(i>=0) S.courses[i]=o; else S.courses.push(o);
   SEM_OPEN.add(o.sem); closeSheet(); touch(); renderGrad(); }
@@ -1206,6 +1365,8 @@ document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeSheet(); });
 
 /* ── 시작 ── */
 (function init(){
+  try{ PLAN_VIEW = localStorage.getItem(LS_NS+':planview')==='1'; }catch(e){}
+  if(typeof DEMO!=='undefined' && DEMO){ S = DEMO_STATE(); $('gate').classList.add('off'); renderAll(); setSync('off','초안 미리보기 · 저장 안 됨'); return; }
   let last = null; try{ last = localStorage.getItem(LS_LAST); }catch(e){}
   renderGate();
   if(last){ const loc = (KEY=last, lsLoad()); KEY = null;
