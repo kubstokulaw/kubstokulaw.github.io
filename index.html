@@ -25,15 +25,18 @@ try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change', apply
 <title>고경에서 고로까지</title>
 <style>
 
-:root{--bg:#f2f4f6;--card:#fff;--ink:#191f28;--sub:#4e5968;--mut:#8b95a1;--faint:#b0b8c1;--line:#eef0f3;--track:#eef0f3;
-  --brand:#8B0029;--brand-ink:#8B0029;--brand-soft:#fbeef2;--ok:#1b9c5a;--ok-soft:#e8f7ef;--ing:#e08a00;--ing-soft:#fff4e0;--blue:#3182f6;--blue-soft:#e8f3ff;
+:root{--bg:#f2f4f6;--card:#fff;--ink:#191f28;--sub:#4e5968;--mut:#5b6573;--faint:#6b7684;--line:#eef0f3;--track:#eef0f3;
+  --brand:#8B0029;--brand-ink:#8B0029;--brand-soft:#fbeef2;--ok:#127a43;--ok-soft:#e8f7ef;--ing:#9a5a00;--ing-soft:#fff4e0;--blue:#1b64da;--blue-soft:#e8f3ff;
   --soft:#f2f4f6;--soft2:#f9fafb;--line2:#e5e8eb;--bd:#d1d6db;--seg:#e9ecef;--blue-ink:#1b64da;--blue-soft2:#f5f9ff;--warn-bg:#fdecec;--warn-ink:#c0392b;
-  --ing-ink:#8a5600;--ing-bar:#f2b8c6;--navbg:rgba(242,244,246,.92);--on-ink:#fff;color-scheme:light}
+  --ing-ink:#8a5600;--ing-bar:#d18000;--navbg:rgba(242,244,246,.92);--on-ink:#fff;
+  /* 2026-11-13 색 정리(C안): 이수=크림슨(--bar) · 수강중=주황(--ing-bar) · 계획=파랑(--plan). 글자색은 배경 대비 4.5:1 이상으로 맞춤 */
+  --bar:#8B0029;--bar-mid:#c9566f;--plan:#3182f6;--danger:#d42c3a;color-scheme:light}
 /* ── 다크모드 (2026-11): 설정에서 자동/라이트/다크, 자동이면 기기 설정 따라감 ── */
-:root[data-theme="dark"]{--bg:#17171c;--card:#202027;--ink:#ececf0;--sub:#b0b0bb;--mut:#868691;--faint:#5c5c66;--line:#2c2c35;--track:#2c2c35;
-  --brand:#a3173f;--brand-ink:#ff7393;--brand-soft:#3b1f29;--ok:#3ac47d;--ok-soft:#1e3328;--ing:#f5a524;--ing-soft:#3a2f1c;--blue:#4b8ef7;--blue-soft:#1f2b40;
+:root[data-theme="dark"]{--bg:#17171c;--card:#202027;--ink:#ececf0;--sub:#b0b0bb;--mut:#9a9aa6;--faint:#868691;--line:#2c2c35;--track:#2c2c35;
+  --brand:#c92450;--brand-ink:#ff7393;--brand-soft:#3b1f29;--ok:#3ac47d;--ok-soft:#1e3328;--ing:#f5a524;--ing-soft:#3a2f1c;--blue:#4b8ef7;--blue-soft:#1f2b40;
   --soft:#2c2c35;--soft2:#26262e;--line2:#34343e;--bd:#4d4d59;--seg:#2a2a33;--blue-ink:#8bb6ff;--blue-soft2:#1c2433;--warn-bg:#3d2224;--warn-ink:#ff8b8b;
-  --ing-ink:#f5b54a;--ing-bar:#6b3a4a;--navbg:rgba(23,23,28,.88);--on-ink:#fff;color-scheme:dark}
+  --ing-ink:#f5b54a;--ing-bar:#f5a524;--navbg:rgba(23,23,28,.88);--on-ink:#fff;
+  --bar:#e03a66;--bar-mid:#a04a66;--plan:#4b8ef7;--danger:#ff6b6b;color-scheme:dark}
 :root[data-theme="dark"] .box, :root[data-theme="dark"] .sheet{box-shadow:none}
 :root[data-theme="dark"] .fab{box-shadow:0 8px 24px rgba(0,0,0,.5)}
 :root[data-theme="dark"] .nav-in img, :root[data-theme="dark"] .g-logo{background:#8B0029}
@@ -70,10 +73,10 @@ button{font:inherit;cursor:pointer}
 .hero h1{margin:6px 0 0;font-size:28px;line-height:1.35;font-weight:700;letter-spacing:-.8px}
 .hero h1 em{font-style:normal;color:var(--brand-ink)}
 .big-pb{height:10px;background:var(--line2);border-radius:99px;margin-top:18px;overflow:hidden;display:flex}
-.big-pb i{display:block;height:100%;background:var(--brand)}
+.big-pb i{display:block;height:100%;background:var(--bar)}
 .big-pb i.ing{background:var(--ing-bar)}
 .legend{display:flex;gap:14px;font-size:12.5px;color:var(--mut);margin-top:9px}
-.legend span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;background:var(--brand);vertical-align:1px}
+.legend span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;background:var(--bar);vertical-align:1px}
 .legend span.ing::before{background:var(--ing-bar)}
 
 .nums{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
@@ -97,7 +100,8 @@ body[data-seg="3"] #box1, body[data-seg="3"] #box2{display:none}
 .row .m b{display:block;font-size:15.5px;font-weight:600}
 .row .m small{display:block;font-size:13px;color:var(--mut);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .row .m .pb{height:4px;background:var(--track);border-radius:99px;margin-top:8px;overflow:hidden}
-.row .m .pb i{display:block;height:100%;background:var(--brand);border-radius:99px}
+.row.zero .ic{background:var(--soft);color:var(--mut)}
+.row .m .pb i{display:block;height:100%;background:var(--bar)}
 .row.done .m .pb i{background:var(--ok)}
 .row .r{text-align:right;font-variant-numeric:tabular-nums;font-size:15px;font-weight:700;min-width:36px}
 .row .r small{display:block;font-size:12px;color:var(--faint);font-weight:500}
@@ -176,7 +180,7 @@ details.tbl th:first-child,details.tbl td:first-child{text-align:left}
 .trend .tr{display:flex;align-items:center;gap:12px;padding:10px 0}
 .trend .tr b{width:92px;font-size:14px;font-weight:600}
 .trend .tr .pb{flex:1;height:8px;background:var(--track);border-radius:99px;overflow:hidden}
-.trend .tr .pb i{display:block;height:100%;background:var(--brand);border-radius:99px}
+.trend .tr .pb i{display:block;height:100%;background:var(--bar);border-radius:99px}
 .trend .tr span{font-weight:700;font-variant-numeric:tabular-nums;width:40px;text-align:right}
 .trend p{font-size:13px;color:var(--mut);margin:10px 0 0}
 
@@ -230,7 +234,7 @@ body.m-leet .fab.g, body:not(.m-leet) .fab.l{display:none}
 .rk i{width:12px;height:3px;border-radius:2px;display:inline-block}
 .rk b{color:var(--ink);font-variant-numeric:tabular-nums}
 .rk em{font-style:normal;font-weight:700;font-size:12px}
-.rk em.up{color:var(--ok)} .rk em.dn{color:#e5484d}
+.rk em.up{color:var(--ok)} .rk em.dn{color:var(--danger)}
 .lg{flex-wrap:wrap}
 .lg i{height:3px!important}
 .lempty{padding:40px 0;text-align:center;color:var(--faint)}
@@ -286,7 +290,7 @@ body.m-leet .fab.g, body:not(.m-leet) .fab.l{display:none}
 .menu-i .m{flex:1}
 .menu-i small{display:block;font-size:13px;color:var(--mut);margin-top:2px}
 .menu-i .go{color:var(--faint);font-size:18px}
-.menu-i.danger{color:#e5484d}
+.menu-i.danger{color:var(--danger)}
 
 /* ── 로그인 + 전공 선택 (온보딩) ── */
 #gate{position:fixed;inset:0;z-index:100;background:var(--card);overflow:auto;display:flex;justify-content:center}
@@ -326,8 +330,8 @@ body.m-leet .fab.g, body:not(.m-leet) .fab.l{display:none}
 .sync{border:none;background:none;font:inherit;cursor:pointer;padding:4px 6px;border-radius:8px}
 .sync:hover{background:var(--line2)}
 .sync i{background:var(--faint)}
-.sync.ok i{background:var(--ok)} .sync.busy i{background:var(--ing)} .sync.err i{background:#e5484d}
-.sync.err span{color:#e5484d}
+.sync.ok i{background:var(--ok)} .sync.busy i{background:var(--ing)} .sync.err i{background:var(--danger)}
+.sync.err span{color:var(--danger)}
 @media (max-width:420px){ .sync span{display:none} }
 .row{position:relative}
 .row .chev{width:18px;height:18px;color:var(--faint);flex:none;transition:transform .2s;margin-left:-4px}
@@ -339,7 +343,7 @@ body.m-leet .fab.g, body:not(.m-leet) .fab.l{display:none}
 .semact{display:flex;gap:8px;align-items:center;margin:6px 0 16px}
 .semact .addc{margin:0;flex:1}
 .delsem{border:none;background:none;color:var(--faint);font-size:12.5px;padding:10px 6px;cursor:pointer}
-.delsem:hover{color:#e5484d}
+.delsem:hover{color:var(--danger)}
 .co{cursor:pointer;border-radius:10px}
 .co:hover{background:var(--soft2)}
 .legend .plain::before{display:none}
@@ -363,7 +367,7 @@ label.chk input{width:20px;height:20px;accent-color:var(--brand)}
 .ovbox b{display:block;font-size:14px;color:var(--brand-ink)}
 .ovbox small{display:block;font-size:12.5px;color:var(--sub);margin:3px 0 10px;line-height:1.5}
 .ovbox .mini-seg{background:var(--card);margin:0}
-.delbtn{width:100%;margin-top:8px;border:none;background:none;color:#e5484d;font:inherit;font-weight:600;font-size:14.5px;padding:12px;cursor:pointer}
+.delbtn{width:100%;margin-top:8px;border:none;background:none;color:var(--danger);font:inherit;font-weight:600;font-size:14.5px;padding:12px;cursor:pointer}
 .plist{max-height:60vh;overflow:auto}
 .plist .pi{display:flex;align-items:center;gap:10px;padding:11px 4px;border-bottom:1px solid var(--line);cursor:pointer;font-size:14.5px}
 .plist .pi small{width:64px;flex:none;color:var(--mut);font-size:12px}
@@ -373,8 +377,8 @@ label.chk input{width:20px;height:20px;accent-color:var(--brand)}
 .syncbox{border-radius:14px;padding:14px;background:var(--soft);margin-bottom:12px}
 .syncbox b{display:block;font-size:16px;margin-bottom:6px}
 .syncbox small{display:block;font-size:13px;color:var(--sub);line-height:1.6}
-.syncbox small.err{color:#e5484d}
-.syncbox.ok b{color:var(--ok)} .syncbox.err b{color:#e5484d}
+.syncbox small.err{color:var(--danger)}
+.syncbox.ok b{color:var(--ok)} .syncbox.err b{color:var(--danger)}
 /* 게이트 */
 .g-in{position:relative}
 .gx{position:absolute;top:calc(14px + env(safe-area-inset-top));right:14px;border:none;background:var(--soft);width:36px;height:36px;border-radius:50%;font-size:15px;color:var(--sub);cursor:pointer}
@@ -382,11 +386,11 @@ label.chk input{width:20px;height:20px;accent-color:var(--brand)}
 .gx.sm{position:static;width:30px;height:30px;font-size:13px}
 @media (min-width:1024px){ #lform .gx.sm{display:none} }
 .gmsg{min-height:20px;font-size:13.5px;color:var(--mut);margin-top:10px;line-height:1.5}
-.gmsg.err{color:#e5484d}
+.gmsg.err{color:var(--danger)}
 .hint{font-size:13px;color:var(--faint);margin-top:6px}
 .g-btn:disabled{cursor:default}
 .lrec .x{border:none;background:none;color:var(--bd);font-size:14px;padding:6px;cursor:pointer}
-.lrec .x:hover{color:#e5484d}
+.lrec .x:hover{color:var(--danger)}
 @media print{.nav,.fab,.seg,#gate{display:none}}
 .detail .dlab{font-size:12px;font-weight:700;color:var(--mut);margin:0 0 6px}
 .detail .tags span{cursor:pointer;-webkit-tap-highlight-color:rgba(0,0,0,.05)}
@@ -397,9 +401,10 @@ label.chk input{width:20px;height:20px;accent-color:var(--brand)}
 .row.open .chev{transform:rotate(180deg)}
 .detail + .row{border-top:1px solid var(--line)}
 /* ── 수강계획 · 재수강 ── */
-.big-pb i.pl, .pb i.pl{background:repeating-linear-gradient(135deg,#9ec5fb 0 4px,#d6e7fe 4px 8px)}
+.big-pb i.pl, .row .m .pb i.pl{background:var(--plan)}
+.row .m .pb i.ing{background:var(--ing-bar)}
 .pb{display:flex}
-.legend span.pl::before{background:#9ec5fb}
+.legend span.pl::before{background:var(--plan)}
 .shortlist{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
 .shortlist span{font-size:12.5px;background:var(--ing-soft);color:var(--ing-ink);padding:5px 9px;border-radius:8px}
 .shortlist b{font-variant-numeric:tabular-nums}
@@ -420,7 +425,7 @@ label.chk input{width:20px;height:20px;accent-color:var(--brand)}
 .co .gr.plan{color:var(--blue-ink);font-size:13px}
 .co .gr s{color:var(--faint);font-weight:500;margin-right:2px}
 .sem .h .planb{font-size:12px;font-weight:700;color:var(--blue-ink);background:var(--blue-soft);padding:3px 8px;border-radius:7px}
-.convbtn{width:100%;margin:4px 0 2px;border:1px dashed #9ec5fb;background:var(--blue-soft2);color:var(--blue-ink);font:inherit;font-weight:600;font-size:13.5px;padding:10px;border-radius:12px;cursor:pointer}
+.convbtn{width:100%;margin:4px 0 2px;border:1px dashed var(--plan);background:var(--blue-soft2);color:var(--blue-ink);font:inherit;font-weight:600;font-size:13.5px;padding:10px;border-radius:12px;cursor:pointer}
 .note{font-size:13px;line-height:1.5;border-radius:12px;padding:10px 12px;margin:6px 0 4px}
 .note.rt{background:var(--ing-soft);color:var(--ing-ink)}
 .note.warn{background:var(--warn-bg);color:var(--warn-ink)}
@@ -457,7 +462,7 @@ body[data-seg="4"] #box1, body[data-seg="4"] #box2, body[data-seg="4"] #boxT{dis
 .gchk+.gchk{border-top:1px solid var(--line)}
 .gchk:hover{background:var(--soft2)}
 .gchk .d{width:22px;height:22px;border-radius:50%;border:2px solid var(--bd);flex:none;display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:800}
-.gchk .d.y{background:var(--ok);border-color:var(--ok)} .gchk .d.i{border-color:var(--ing);background:var(--ing-soft)} .gchk .d.p{border-color:#9ec5fb;background:var(--blue-soft)}
+.gchk .d.y{background:var(--ok);border-color:var(--ok)} .gchk .d.i{border-color:var(--ing);background:var(--ing-soft)} .gchk .d.p{border-color:var(--plan);background:var(--blue-soft)}
 .gchk .n{flex:1;min-width:0} .gchk .c{color:var(--mut);font-size:13px;font-variant-numeric:tabular-nums}
 .gchk .st{font-size:12px;font-weight:700;color:var(--ing)} .gchk .st.p{color:var(--blue-ink)} .gchk .st.add{color:var(--blue);font-weight:600}
 .gchips{display:flex;gap:6px;overflow-x:auto;margin:2px -2px 6px;padding:2px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
@@ -1100,14 +1105,17 @@ function reqRow(r, key, idx){
   const done = r.done, left = Math.max(0, r.need - r.got);
   let sub = r.cap ? r.note : done ? (PLAN_VIEW ? '계획대로면 채워요' : '완료했어요') : (r.note ? r.note : `${fmt(left)}${r.unit||'학점'} ${PLAN_VIEW?'부족해요':'남았어요'}`);
   const pg = r.planGot!=null && r.planGot > r.got ? r.planGot : null;
+  /* 막대: 이수(크림슨) + 수강중(주황) + 계획(파랑). ingGot = 수강중까지만 센 값(표시용) */
+  const pGot = pct(r.got,r.need), pIng = pg!=null && r.ingGot!=null ? Math.max(pGot, Math.min(pct(r.ingGot,r.need), pct(pg,r.need))) : pGot, pAll = pg!=null ? Math.max(pIng, pct(pg,r.need)) : pGot;
+  const zero = !done && !r.cap && !(r.got>0);
   if(pg!=null && !done) sub += ` · 계획 포함 ${fmt(pg)}${r.unit||''}`;
   const itemsHTML = r.items ? `<div class="tags">${r.items.map(chipHTML).join('')}</div><div class="hint2">과목을 누르면 ${'바로 추가·수정'}할 수 있어요</div>` : '';
   const mineHTML = r.mine ? (r.mine.length ? `<div class="dlab">인정된 과목</div><div class="tags">${r.mine.map(chipHTML).join('')}</div>` : `<div class="mut s">아직 인정된 과목이 없어요</div>`) : '';
   const poolHTML = r.pool ? `<button class="linkbtn" onclick="event.stopPropagation();showPool('${id}')">인정 과목 ${r.pool.length}개 보기 · 눌러서 추가</button>` : '';
   const has = !!(r.items || r.mine || r.pool);
-  return `<div class="row ${done?'done':''} ${r.cap?'capr':''} ${OPEN.has(id)?'open':''}" ${has?`onclick="togRow('${id}')" role="button" aria-expanded="${OPEN.has(id)}"`:''} id="${id}-h">
+  return `<div class="row ${done?'done':''} ${zero?'zero':''} ${r.cap?'capr':''} ${OPEN.has(id)?'open':''}" ${has?`onclick="togRow('${id}')" role="button" aria-expanded="${OPEN.has(id)}"`:''} id="${id}-h">
     <div class="ic">${done?'✓':Math.round(pct(r.got,r.need))+'%'}</div>
-    <div class="m"><b>${esc(r.k)}</b><small>${esc(sub)}</small><div class="pb"><i style="width:${pct(r.got,r.need)}%"></i>${pg!=null?`<i class="pl" style="width:${Math.max(0,pct(pg,r.need)-pct(r.got,r.need))}%"></i>`:''}</div></div>
+    <div class="m"><b>${esc(r.k)}</b><small>${esc(sub)}</small><div class="pb"><i style="width:${pGot}%"></i>${pIng>pGot?`<i class="ing" style="width:${pIng-pGot}%"></i>`:''}${pAll>pIng?`<i class="pl" style="width:${pAll-pIng}%"></i>`:''}</div></div>
     <div class="r">${fmt(r.got)}<small>/ ${r.need}${r.unit||''}</small></div>${has?chevSvg:''}</div>
     ${has?`<div class="detail ${OPEN.has(id)?'on':''}" id="${id}">${itemsHTML}${mineHTML}${poolHTML}</div>`:''}`;
 }
@@ -1130,6 +1138,11 @@ function renderGrad(){
   if(!PLAN_VIEW && S.courses.some(c=>isIng(c)||isPlan(c))){ PLAN_VIEW = true; RP = compute(); PLAN_VIEW = false; }
   const R = LAST = compute(), solo = !R.s2;
   if(RP){ R.biz.forEach((r,i)=>r.planGot = RP.biz[i] && RP.biz[i].got); if(R.s2 && RP.s2) R.s2.reqs.forEach((r,i)=>r.planGot = RP.s2.reqs[i] && RP.s2.reqs[i].got); }
+  /* 막대 색 나누기용: 계획 과목을 잠깐 빼고 '수강중까지' 계산 (화면 표시에만 씀, 저장 데이터는 그대로) */
+  if(RP && S.courses.some(isPlan) && S.courses.some(isIng)){ const all = S.courses; let RI = null;
+    try{ S.courses = all.filter(c=>!isPlan(c)); PLAN_VIEW = true; RI = compute(); }catch(e){ RI = null; }finally{ S.courses = all; PLAN_VIEW = false; }
+    if(RI){ R.biz.forEach((r,i)=>r.ingGot = RI.biz[i] && RI.biz[i].got); if(R.s2 && RI.s2) R.s2.reqs.forEach((r,i)=>r.ingGot = RI.s2.reqs[i] && RI.s2.reqs[i].got); } }
+  else if(RP){ const onlyIng = S.courses.some(isIng); R.biz.concat(R.s2 ? R.s2.reqs : []).forEach(r=>r.ingGot = onlyIng ? r.planGot : r.got); }
   document.body.classList.toggle('solo', solo);
   if(solo && SEG==2) SEG = 1;
   document.body.dataset.seg = SEG;
@@ -1204,9 +1217,9 @@ function renderLib(R){
   const free = Math.max(0, 130 - (need(major) + need(base) + s2Need + gen.need));
   const usedReq = used(major) + used(base) + Math.min(gen.got, gen.need) + (s2 ? Math.min(s2.got, s2.need) - (s2.dual ? s2.dual.used||0 : 0) : 0);
   const filled = Math.max(0, Math.min(free, R.total - usedReq)), left = free - filled;
-  const segs = [['경영 전공', need(major), 'var(--brand)'], ['학문기초·경제', need(base), '#c9566f']]
+  const segs = [['경영 전공', need(major), 'var(--bar)'], ['학문기초·경제', need(base), 'var(--bar-mid)']]
     .concat(s2 ? [[s2.short + (cap ? ' (중복 제외)' : ''), s2Need, 'var(--blue)']] : [])
-    .concat([['교양필수', gen.need, '#8b95a1'], ['자유 · 채움', filled, 'var(--ok)'], ['자유 · 남음', left, 'var(--line2)']]);
+    .concat([['교양필수', gen.need, 'var(--faint)'], ['자유 · 채움', filled, 'var(--ok)'], ['자유 · 남음', left, 'var(--line2)']]);
   const pe = R.pe || {got:0, ing:0};
   const peNote = pe.got > PE_CAP
     ? `<div class="lnote warn">교양체육을 ${fmt(pe.got)}학점 들었는데 <b>${PE_CAP}학점까지만</b> 졸업학점에 들어가요 · ${fmt(pe.got-PE_CAP)}학점은 빠져요</div>`
@@ -1419,7 +1432,11 @@ function saveCourse(){
 function delCourse(id){ if(!confirm('이 과목을 지울까요?')) return; S.courses = S.courses.filter(c=>c.id!==id); closeSheet(); touch(); renderGrad(); if(EDIT_BACK==='gyo') openGyo(); }
 
 /* ── 성적 추이 차트 (학기 평점 / 누적 평점 · 학기별 학점) ── */
-const C_SEM = '#b3123f', C_CUM = '#3182f6';
+let C_SEM, C_CUM, C_GRAY, L_COL;   // 차트 색 — 다크에선 어두운 카드 위에서 보이게 밝은 값 (대비 4.5:1 이상)
+function chartColors(){ const dark = document.documentElement.dataset.theme==='dark';
+  C_SEM = dark ? '#ff5c7f' : '#b3123f'; C_CUM = dark ? '#6aa5f7' : '#3182f6'; C_GRAY = dark ? '#9a9aa6' : '#6b7684';
+  L_COL = dark ? ['#ff5c7f','#6aa5f7','#3ac47d','#f5a524'] : ['#b3123f','#3182f6','#0e9f6e','#d97706']; }   // 명도·색각이상 대비 검증 4색 (고정 순서)
+chartColors();
 let trendMode = 'gpa';
 function trendRows(){ return semStats().filter(r=>r.gpa!=null || r.ing); }
 function trendHTML(uid){
@@ -1474,7 +1491,7 @@ function wireTrend(uid){
     const line=(c,val,lb,dash)=>{ const e=document.createElement('div'); e.className='tr2'; const k=document.createElement('i'); if(dash){k.className='dash'; k.style.color=c;} else k.style.background=c;
       const b=document.createElement('b'); b.textContent=val; const s=document.createElement('span'); s.textContent=lb; e.append(k,b,s); tip.appendChild(e); };
     if(d.gpa==null) line(C_SEM, fmt(d.enrolled)+'학점', '수강중 · 성적 미확정');
-    else { line(C_SEM, d.gpa.toFixed(2), '학기 평점'); line(C_CUM, d.cum.toFixed(2), '누적 평점', true); line('#8b95a1', fmt(d.earned)+'학점', '취득'); }
+    else { line(C_SEM, d.gpa.toFixed(2), '학기 평점'); line(C_CUM, d.cum.toFixed(2), '누적 평점', true); line(C_GRAY, fmt(d.earned)+'학점', '취득'); }
     tip.style.display='block'; const tw=tip.offsetWidth; tip.style.left = Math.max(4, Math.min(rc.width-tw-4, x(i)/W*rc.width - tw/2))+'px'; };
   sv.addEventListener('pointermove', move); sv.addEventListener('pointerdown', move);
   sv.addEventListener('pointerleave', ()=>{ tip.style.display='none'; xh.style.visibility='hidden'; });
@@ -1502,7 +1519,7 @@ function openSyncInfo(){
       <small>${SYNC.dirty?'서버에 아직 안 올라간 변경이 있어요 (자동 재시도 중)':'이 기기와 서버가 같은 상태예요'}</small></div>
     <p class="mut s">홈 화면 앱은 사파리와 저장공간이 따로라 처음 한 번은 키로 다시 로그인해야 해요. 이후엔 앱을 열 때마다 서버 최신본을 자동으로 확인해요.</p>
     <button class="savebtn" onclick="SYNC.dirty=true;pull().then(()=>openSyncInfo())">지금 동기화</button>`); }
-function setTheme(k){ try{ localStorage.setItem('kugrad3:theme', k); }catch(e){} applyTheme(); openMenu(); if(APP_MODE==='leet') renderLeet(); else renderGrad(); }
+function setTheme(k){ try{ localStorage.setItem('kugrad3:theme', k); }catch(e){} applyTheme(); chartColors(); openMenu(); if(APP_MODE==='leet') renderLeet(); else renderGrad(); }
 function toggleLeet(){ S.profile.leet = !S.profile.leet; touch(); if(!S.profile.leet) APP_MODE='grad'; renderAll(); openMenu(); }
 function exportJSON(){ const b = new Blob([JSON.stringify(pack(),null,1)],{type:'application/json'}); const a=document.createElement('a');
   a.href=URL.createObjectURL(b); a.download='고경고로-백업-'+new Date().toISOString().slice(0,10)+'.json'; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1000); }
@@ -1555,6 +1572,7 @@ function afterLogin(){
 /* ═══════════ 공통 렌더 ═══════════ */
 function setMode(m){ APP_MODE = m; renderAll(); window.scrollTo(0,0); }
 function renderAll(){
+  chartColors();
   const leetOn = !!S.profile.leet; if(!leetOn) APP_MODE = 'grad';
   document.body.classList.toggle('leet-on', leetOn);
   document.body.classList.toggle('m-leet', APP_MODE==='leet');
@@ -1564,6 +1582,8 @@ function renderAll(){
 }
 window.addEventListener('resize', ()=>{ clearTimeout(window.__rz); window.__rz = setTimeout(()=>{ if(APP_MODE==='leet') leetChart(); else { wireTrend('m'); wireTrend('d'); } }, 150); });
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeSheet(); });
+/* 화면 모드 '자동'에서 기기가 라이트↔다크로 바뀌면 차트 색도 다시 */
+try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change', ()=>{ if($('gate').classList.contains('off')) renderAll(); }); }catch(e){}
 
 /* ── 시작 ── */
 (function init(){
@@ -1604,7 +1624,6 @@ function leetConv(year, sub, raw){
 }
 const LEET_YEARS = Object.keys(LEET_DATA.years).sort((a,b)=>b-a);
 const leetQ = (year, sub) => LEET_DATA.scales[LEET_DATA.years[year].scale][sub].q;
-const L_COL = ['#b3123f','#3182f6','#0e9f6e','#d97706'];   // 명도·색각이상 대비 검증 통과 4색 (고정 순서)
 const LV = { mode:'past', metric:'std', subj:'sum' };
 let LF = { kind:'past', year:'2027', round:'', e:'', c:'', org:LEET_ORGS[0], orgFree:'', name:'', er:'', es:'', ep:'', cr:'', cs:'', cp:'', date:'' };
 const recs = () => (S.leet && S.leet.recs) || [];
@@ -1662,7 +1681,7 @@ function leetChart(){
       if(!placed.some(p=>Math.abs(p[0]-lx)<48 && Math.abs(p[1]-ly)<16)){ placed.push([lx,ly]); lab = `<text x="${lx}" y="${ly}" class="dl" text-anchor="middle">${f1(s.data[li])}</text>`; } }
     return `<path d="${d}" fill="none" stroke="${s.color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>${dots}${lab}`;
   }).join('');
-  const avg = Sx.avg!=null ? `<line x1="${L}" x2="${W-R}" y1="${y(Sx.avg)}" y2="${y(Sx.avg)}" stroke="#8b95a1" stroke-width="1.5" stroke-dasharray="4 4"/><text x="${L+4}" y="${y(Sx.avg)-6}" class="ax">평균 ${f1(Sx.avg)}</text>` : '';
+  const avg = Sx.avg!=null ? `<line x1="${L}" x2="${W-R}" y1="${y(Sx.avg)}" y2="${y(Sx.avg)}" stroke="${C_GRAY}" stroke-width="1.5" stroke-dasharray="4 4"/><text x="${L+4}" y="${y(Sx.avg)-6}" class="ax">평균 ${f1(Sx.avg)}</text>` : '';
   box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${metricLabel()} 추이">${g}${xl}${avg}<line class="xh" x1="0" x2="0" y1="${T}" y2="${H-B}" style="visibility:hidden"/>${lines}</svg><div class="tip"></div>`;
   const sv = box.querySelector('svg'), tip = box.querySelector('.tip'), xh = sv.querySelector('.xh');
   const move = ev => {
